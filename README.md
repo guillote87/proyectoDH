@@ -1,7 +1,5 @@
 # proyectoDH
 
-# proyectoDH
-
   Hola! Nuestro proyecto va a ser el desarrollo de un e-commerce llamado "Nicotine" de venta de indumentaria con diferentes tématicas como artistas musicales, películas, series, etc.
   Público objetivo: Apuntamos a un público de entre unos 16 a 40 años ya que las temáticas de la indumentaria tambien apunta hacia esos números.
 
