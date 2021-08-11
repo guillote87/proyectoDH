@@ -1,0 +1,23 @@
+{
+  "name": "proyectodh",
+  "version": "1.0.0",
+  "description": "Hola! Nuestro proyecto va a ser el desarrollo de un e-commerce llamado \"Nicotine\" de venta de indumentaria con diferentes tématicas como artistas musicales, películas, series, etc.\r   Público objetivo: Apuntamos a un público de entre unos 16 a 40 años ya que las temáticas de la indumentaria tambien apunta hacia esos números.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillote87/proyectoDH.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillote87/proyectoDH/issues"
+  },
+  "homepage": "https://github.com/guillote87/proyectoDH#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
