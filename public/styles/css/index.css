@@ -22,7 +22,12 @@ header a {
     text-decoration: none;
     color: white;
 }
-
+.header-fixed{
+    width: 100%;
+    position: fixed;
+    top:0px;
+    z-index: 100;
+}
 .top-header {
     color: white;
     display: flex;
@@ -122,10 +127,14 @@ header label {
     cursor: pointer;
 }
 
+.banner{
+    margin-top: 150px;
+}
 .banner .contenedor {
     position: absolute;
     top: 50%;
     left: 50%;
+    
     transform: translateX(-50%) translateY(-50%);
     color: #fff
 }
