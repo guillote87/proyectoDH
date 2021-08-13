@@ -1,0 +1,344 @@
+cd :root {
+    --blanco: #ffffff;
+    --grisClaro: #dcdcdc;
+    --gris:#9f9f9f;
+    --grisOscuro: #5B5B5B;
+    --negro: #060606;
+    --violeta: #a11aa0;
+}
+
+html {
+    height: 100%;
+    background-color: var(--blanco); 
+    background-repeat: no-repeat;
+    font-family: 'Rajdhani', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Arranca header */
+
+.contenedor-header {
+    width: auto;
+    height: 5rem;
+    display: flex;
+    background-color: var(--blanco);
+}
+
+.logo img {
+    margin-left: 1rem;
+    height: 2.9rem;
+    text-align: center;
+    padding-top: 1.1rem;
+    width: 10rem;
+}
+
+.contenedor-nav{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.buscador{
+    margin-bottom: auto;
+    text-align: center;
+    padding-top: 20px;
+    
+}
+
+.buscador input {
+    width: 30rem;
+    border: 3px solid var(--negro);
+    height: 2rem;
+    transition: all 0.5s;
+}
+
+.buscador input:hover {
+    border: 3px solid var(--violeta);
+}
+
+.buscador button {
+    height: 2rem;
+    border: 3px solid var(--negro);
+    color: var(--blanco);
+    background-color: var(--negro);
+}
+
+.buscador button:hover{
+    background-color: var(--violeta);
+    border: 3px solid var(--violeta);
+}
+
+nav a{
+    display: block;
+    text-align: center;
+    padding: 0.2rem;
+    color: var(--negro);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.3rem;
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    color: var(--blanco);
+    background-color: var(--violeta);
+    border-radius: 7%;
+}
+
+.navegacion {
+    display: flex;
+    width: auto;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedor-usuario {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-login {
+    display: flex;
+
+}
+
+.login {
+    color: var(--negro);
+    text-decoration: none;
+}
+
+.contenedor-iconos {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.contenedor-iconos i {
+    color: var(--blanco);
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+.icono:hover i {
+    color: var(--negro);
+}
+
+.icono {
+    background-color: var(--negro);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.icono:hover {
+    background-color: var(--violeta);
+}
+
+/* Termina header */
+
+/* Arranca Main */
+
+main {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr 1fr;
+    margin-top: 1rem;
+    background-color: var(--gris);
+    width: 100%;
+}
+
+section.interes {
+    margin-left: 0.5rem;
+    margin-top: 0.8rem;
+    height: 22rem;
+    padding: 1rem;
+    background-color: var(--blanco);
+    border: var(--negro) 1px solid;
+}
+
+.imagen-interes{
+    width: 4rem;
+}
+
+.titulo-interes{
+    font-size: 0.7rem;
+    margin: 0;
+    padding-left: 0.3rem;
+}
+
+.precio-interes {
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+    padding-left: 0.3rem;
+    margin-bottom: 0;
+}
+
+.talle-interes {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0.3rem;
+}
+
+.contenedor-interes {
+    display: flex;
+    height: 64px;
+    border: double var(--negro) 2px;
+    margin-bottom: 0.3rem;
+    transition: all 0.5s;
+}
+
+.contenedor-interes:hover {
+    background-color: var(--violeta)
+}
+
+section.interes h2 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.contenedor-div-talle {
+    display: flex;
+    justify-content: space-around;
+    height: 0.7rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.div-talle {
+    background-color: var(--negro);
+    border-radius: 50%;
+    height: 0.9rem;
+    width: 0.9rem;
+}
+
+.contenedor-div-talle p {
+    margin: 0;
+    font-size: 0.7rem;
+    color: var(--blanco);
+    text-align: center;
+}
+
+.producto {
+    margin-left: 2rem;
+}
+
+.producto a, .producto p {
+    display: inline-block;
+    font-size: 0.7rem ;
+    text-decoration: none;
+    color: var(--negro);
+}
+
+.ruta p {
+    margin: 0;
+}
+
+.ruta {
+    margin-left: 0.8rem;
+}
+
+.titulo-producto h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding-left: 8rem;
+}
+
+.contenedor-fotos {
+    display: flex;
+    margin-left: 2rem;
+}
+
+.remera {
+    width: 80%;
+    height: 70%;
+    margin-left: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.remera2 {
+    width: 150%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.precio {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+.detalles h2 {
+    display: inline-block;
+}
+
+.detalles span {
+    margin-left: 0.5rem;
+    color: var(--blanco);
+}
+
+.form {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.detalles select {
+    height: 1.5rem;
+    border-radius: 8%;
+    border: none;
+    transition: all 0.5s;
+}
+
+.detalles select:hover {
+    background-color: var(--violeta);
+    color: var(--blanco)
+}
+
+.boton {
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    width: 80%;
+    height: 2rem;
+    border: none;
+    background-color: var(--blanco);
+    transition: all 0.5s;
+}
+
+.boton:hover {
+    background-color: var(--violeta);
+    color: var(--blanco);
+}
+
+.contenedor-mercado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blanco);
+    margin-top: 1rem;
+    margin-left: 3.09rem;
+    width: 20rem;
+}
+
+.mercado {
+    width: 60%;
+}
+/* Termina Main */
+
+.banner {
+    width: 100%;
+    height: 10rem;
+}
