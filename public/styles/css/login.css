@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Rajdhani", sans-serif;
+}
+
+
+/*header*/
+
+header section {
+    background-color: black;
+    display: flex;
+}
+
+header section a {
+    background-color: black;
+    float: left;
+    width: 70%;
+}
+
+.logo {
+    max-width: 100%;
+    color: gray;
+    background-color: black;
+}
+
+.fa-question-circle {
+    font-size: 60px;
+    background-color: black;
+    color: white;
+    float: right;
+    width: 30%;
+    text-align: end;
+    margin: auto;
+}
+
+
+/*main*/
+
+main section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 15px 15px;
+    border: 2px black solid;
+    margin: 30px 0;
+}
+
+.login-box h2 {
+    padding: 5px;
+    margin: auto;
+}
+
+.login-box input {
+    width: 100%;
+    border-radius: 3px;
+    border-color: black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.login-box button {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    border-color: black;
+}
+
+.button-login:hover {
+    color: rgba(107, 32, 135, 0.75);
+    font-weight: bold;
+}
+
+.button-create-account {
+    color: white;
+    background-color: black;
+}
+
+.button-create-account:hover {
+    background-color: rgba(107, 32, 135, 0.75);
+}
+
+
+/*footer*/
+
+footer {
+    background-color: black;
+    display: flex;
+}
+
+.info-footer {
+    color: white;
+    font-size: 12px;
+    width: 70%;
+    align-self: center;
+}
+
+.medios-pago {
+    width: 30%;
+    justify-content: right;
+    padding: 5px;
+}
