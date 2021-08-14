@@ -16,7 +16,12 @@ app.get("/",(req,res)=>{
     res.sendFile(path.resolve("./views/index.html"))
 })
 
-app.get("/productDetail", (req, res) => {
+app.get("/productDetail",(req,res)=>{
     res.sendFile(path.resolve("./views/productDetail.html"))
 })
+
+app.get("/login", (req,res)=>{
+    res.sendFile(path.resolve("./views/login.html"))
+})
+
 
