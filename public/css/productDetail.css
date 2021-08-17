@@ -177,16 +177,11 @@ main {
     width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: 0.6fr 1.4fr 1fr;
-    background-color: var(--gris);
-    width: 100%;
-}
+    grid-template-columns: repeat(1, 1fr);
+    }
 
-
-
-section.interes {
+    section.interes {
     display: none;
-
 }
 
 .imagen-interes {
