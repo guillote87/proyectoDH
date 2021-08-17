@@ -1,0 +1,172 @@
+header {
+ height: 150px;
+ background-color: black;
+}
+
+header a {
+ text-decoration: none;
+ color: white;
+}
+
+.header-fixed {
+ width: 100%;
+ position: fixed;
+ top: 0px;
+ z-index: 100;
+}
+
+.top-header {
+ color: white;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.top-header i {
+ font-size: 18px;
+}
+
+.top-header i:hover {
+ color: rgba(107, 32, 135, 0.75);
+}
+
+.buscador {
+ display: none;
+}
+
+.buscador input {
+ width: 30rem;
+ height: 2rem;
+}
+.buscador input:hover {
+ border: 3px solid var(--violeta);
+}
+
+.login {
+
+ align-items: center;
+}
+
+.log-movil i{
+ position: relative;
+ padding: 30px;
+ right: 20px;
+ top: 10px
+}
+
+.log-web {
+ display: none;
+ 
+}
+
+#menu-bar {
+ display: none;
+}
+
+header label {
+ position: absolute;
+ top: 110px;
+ right: 50%;
+ float: right;
+ font-size: 28px;
+ margin: 6px 0;
+ cursor: pointer;
+}
+
+header label:hover {
+ color: rgba(107, 32, 135, 0.75);
+}
+
+.menu {
+ font-size: 1.2rem;
+ position: absolute;
+ top: 150px;
+ left: 0;
+ width: 100%;
+ height: 100vh;
+ background: rgba(51, 51, 51, 0.9);
+ transition: all 0.5s;
+ transform: translateX(-100%);
+}
+
+.menu a {
+ display: block;
+ color: #fff;
+ height: 60px;
+ text-decoration: none;
+ padding: 15px;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.menu a:hover {
+ background: rgba(107, 32, 135, 0.75);
+ transform: translateX(0%);
+}
+
+#menu-bar:checked~.menu {
+ transform: translateX(0%);
+}
+
+
+header label {
+ float: right;
+ color: white;
+ font-size: 28px;
+ margin: 6px 0;
+ cursor: pointer;
+}
+
+@media (min-width:780px){
+    .buscador {
+        display: flex;
+        width:300px;
+    }
+    .log-web {
+        display: block;
+    }
+
+    .login {
+        justify-content: space-around;
+    }
+
+    .log-movil {
+        position: unset;
+
+    }
+    .top-header{
+        display:flex;
+        justify-content: space-between;
+    }
+}
+    @media (min-width:1000px){
+        .buscador{
+            width: auto;
+        }
+        
+    .header {
+        height: 160px;
+    }
+
+    header label {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+        width: 100%;
+        height: 50px;
+        background: black;
+        position: static;
+        transform: translateX(0%);
+        transition: none;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu a {
+        height: 25px;
+        text-decoration: none;
+        padding: 10px;
+        border-bottom: none;
+    }
+    }

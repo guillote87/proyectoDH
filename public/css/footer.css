@@ -1,0 +1,21 @@
+footer {
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.iconos-redes i {
+    color: rgba(107, 32, 135, 0.75);
+    font-size: 33px;
+    margin: auto;
+}
+@media (min-width:780px) {
+    
+    footer section {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
