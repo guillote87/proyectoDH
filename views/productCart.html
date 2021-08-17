@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/productCart.css">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header-fixed">
+        <div class="top-header contenedor">
+
+            <img class="logo" src="/images/NICOTINE.png" alt="Logo Nicotine">
+            <div class="buscador">
+                <input type="search" name="buscador" placeholder="Buscá lo que quieras...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="login">
+                <div class="log-web">
+                    <a href="#">Login</a>
+                    <a href="#">|</a>
+                    <a href="/login">Registrarse</a>
+                </div>
+                <div class="log-movil">
+                    <a href="/login"><i class="far fa-user"></i></a>
+                    <a href="/login"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+            </div>
+        </div>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar"><i class="lni lni-menu"></i></label>
+        <nav class="menu">
+            <a href="#">Nuestros Productos</a>
+            <a href="#">Locales</a>
+            <a href="#">Promociones</a>
+            <a href="#">Nosotros</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Tu carrito</h1>
+        <section>
+            <article>
+                <div> 
+                    <img class="remera" src="/images/productos/1.jpg" alt="Remera Nirvana">
+                </div>
+                <div class="info">
+                    <h2>Remera Nirvana</h2>
+                    <p>$2500</p>
+                    <label for="talle"></label>
+                        <select class="talle" name="talle" id="talle">
+                            <option>Talle</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                </div>
+                <div class="quantity">
+                    <p class="number">1</p>
+                    <div class="button-container">
+                        <button class="button" type="button">+</button>
+                        <button class="button" type="button">-</button>
+                    </div>
+                    <div>
+                        <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div> 
+                    <img class="remera" src="/images/productos/1.jpg" alt="Remera Nirvana">
+                </div>
+                <div class="info">
+                    <h2>Remera Nirvana</h2>
+                    <p>$2500</p>
+                    <label for="talle"></label>
+                        <select class="talle" name="talle" id="talle">
+                            <option>Talle</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                </div>
+                <div class="quantity">
+                    <p class="number">1</p>
+                    <div class="button-container">
+                        <button class="button" type="button">+</button>
+                        <button class="button" type="button">-</button>
+                    </div>
+                    <div>
+                        <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div> 
+                    <img class="remera" src="/images/productos/1.jpg" alt="Remera Nirvana">
+                </div>
+                <div class="info">
+                    <h2>Remera Nirvana</h2>
+                    <p>$2500</p>
+                    <label for="talle"></label>
+                        <select class="talle" name="talle" id="talle">
+                            <option>Talle</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                </div>
+                <div class="quantity">
+                    <p class="number">1</p>
+                    <div class="button-container">
+                        <button class="button" type="button">+</button>
+                        <button class="button" type="button">-</button>
+                    </div>
+                    <div>
+                        <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </article>
+        </section>  
+        <section class="buy-detail">
+            <div class="price">
+                <h3>Total ropa</h3>
+                <p class="total">$2500 x 3 = </p><i>$7500</i>
+            </div>
+            <div class="shipping">
+                <p class="total">¿Retirás por nuestro  </p>&nbsp<a class="total" href="#"> local?</a>
+                <label for="shipping">SI</label>
+                <input type="checkbox" name="shipping" id="shipping">
+                <div>
+                    <p class="shipping-price">Envío: $399</p>
+                </div>
+            </div>
+            <div class="final-price">
+                <h2>Total a pagar:</h2>
+                <p>$7899</p>
+            </div>
+            <div class="pay-method-container">
+                <h3>Método de pago</h3>
+                <label for="pay-method"></label>
+                    <select class="pay-method" name="pay-method" id="pay-method">
+                        <option value="credit">Crédito</option>
+                        <option value="cash">Efectivo</option>
+                        <option value="debit">Débito</option>
+                    </select>
+                <label for="pay-options"></label>
+                    <select class="pay-options" name="pay-options" id="pay-options">
+                        <option value="visa">Visa</option>
+                        <option value="masterCard">Master Card</option>
+                        <option value="americanExpress">American Express</option>
+                    </select>
+            </div>
+            <div >
+                <button class="buy-button" type="submit">Comprar ahora</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

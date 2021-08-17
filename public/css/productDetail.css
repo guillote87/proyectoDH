@@ -25,7 +25,8 @@ body {
     width: auto;
     height: 5rem;
     display: flex;
-    background-color: var(--blanco);
+    background-color: var(--negro);
+    padding-bottom: 1rem;
 }
 
 .logo img {
@@ -76,7 +77,7 @@ nav a{
     display: block;
     text-align: center;
     padding: 0.2rem;
-    color: var(--negro);
+    color: var(--blanco);
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -85,7 +86,7 @@ nav a{
 }
 
 nav a:hover {
-    color: var(--blanco);
+    color: var(--negro);
     background-color: var(--violeta);
     border-radius: 7%;
 }
@@ -109,8 +110,13 @@ nav a:hover {
 }
 
 .login {
-    color: var(--negro);
+    color: var(--blanco);
     text-decoration: none;
+    transition: all 0.5s;
+}
+
+.login:hover {
+    color: var(--violeta);
 }
 
 .contenedor-iconos {
@@ -152,7 +158,6 @@ nav a:hover {
 main {
     display: grid;
     grid-template-columns: 0.6fr 1.4fr 1fr;
-    margin-top: 1rem;
     background-color: var(--gris);
     width: 100%;
 }
