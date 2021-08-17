@@ -177,15 +177,9 @@ main {
     width: 90%;
     margin: auto;
     display: grid;
-<<<<<<< HEAD:public/css/productDetail.css
     grid-template-columns: 0.6fr 1.4fr 1fr;
     background-color: var(--gris);
     width: 100%;
-=======
-    grid-template-columns: repeat(1, 1fr);
-    
-    
->>>>>>> 808bb9ecba7520417c7010a6f9d1d84ba7b22feb:public/css/detailProduct.css
 }
 
 
