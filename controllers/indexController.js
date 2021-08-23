@@ -1,6 +1,6 @@
 const indexController = {
     index: (req, res) => {
-        res.render("index.ejs");
+        res.render("index");
     },
     about: (req, res) => {
         res.send("About");
