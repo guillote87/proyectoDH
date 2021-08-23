@@ -1,4 +1,5 @@
 @import url(header.css);
+@import url(footer.css);
 
 :root {
     --blanco: #ffffff;
@@ -13,8 +14,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Rajdhani', sans-serif;
+        font-family: 'Rajdhani', sans-serif;
 }
 
 /* Main */
@@ -50,27 +50,24 @@ article {
 
 .quantity {
     position: relative;
-    bottom: 0px;
-}
-
-.number {
-    display: inline-block;
-    border: 1px solid var(--negro);
-    width: 18px;
+    width: 25px;
     text-align: center;
-    margin-left: 7px;
-    margin-top: 8px;
+    border: 1px solid var(--negro);
+    margin-right: 2px;
 }
 
 .button-container {
     display: flex;
-    justify-content: space-between;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+ 
 }
 
 .button {
     width: 15px;
     margin-right: 3px;
-    margin-top: 5px;
+
     display: inline-block;
 }
 
@@ -79,41 +76,75 @@ article {
     border: red 1px solid;
     padding: 2px;
     margin-top: 30px;
-    margin-left: 5px;
-}
+    margin-left: 20px;
+ }
 
 .buy-detail {
     display: flex;
     flex-direction: column;
     border: 2px solid var(--negro);
     background-color: var(--grisClaro);
+    text-align: center;
 }
 
 .price, .shipping, .pay-method-container, .final-price, .final-price p{
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 .total {
-    display: inline-block;
+    margin-left: 20px;
 }
 
 .shipping-price {
     margin-top: 5px;
 }
-
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.final-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .final-price p {
     border: 2px var(--negro) solid;
-    display: inline-block;
+   
     padding: 3px;
 }
 
 .buy-button {
-    width: 80%;
-    margin-top: 8px;
+    width: 50%;
+    margin-top: 10px;
     background-color: var(--violeta);
     border: 2px var(--negro);
     border-radius: 5%;
     height: 30px;
-    margin-left: 40px;
+    margin-left:auto;
+    margin-bottom: 20px;
+}
+
+@media (min-width:482px){
+       article{
+        justify-content: space-around;
+    }
+    
+    main{
+        align-items: center;
+    }
+    main section{
+        width: 70%;
+    }
+    .buy-button{
+        width: 40%;
+    }
+    .buy-detail{
+        text-align: right;
+        padding-right: 10px;
+    }
+    .price,.final-price{
+        justify-content:flex-end;
+    }
 }
