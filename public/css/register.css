@@ -1,0 +1,19 @@
+.register{
+    text-align: center;
+    border: blue 1px solid;
+}
+.form-register{
+    display:flex;
+    width: 500px;
+    height: 800px;
+    flex-direction: column;
+    color:white;
+    background-color: black;
+    margin:auto;
+    align-items: center;
+   
+}
+.form-register input{
+    width:70%;
+    }
+    
