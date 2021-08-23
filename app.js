@@ -1,34 +1,21 @@
-const express = require("express")
-app = express()
-const path = require("path")
+const express = require("express");
+const app = express();
+const path = require("path");
+const indexRoutes = require("./routes/indexRoutes");
+const productsRoutes = require("./routes/productsRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 
-const publicPath = path.resolve(__dirname, "./public")
+const publicPath = path.resolve(__dirname, "./public");
+app.use(express.static(publicPath));
 
-app.use(express.static(publicPath))
+app.set("view engine", "ejs");
 
-
-
-app.listen(process.env.PORT||3000, ()=>{
-    console.log('Servidor funcionando');
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Servidor funcionando");
 });
 
-app.get("/",(req,res)=>{
-    res.sendFile(path.resolve("./views/index.html"))
-})
-app.get("/register",(req,res)=>{
-    res.sendFile(path.resolve("./views/register.html"))
-})
+app.get("/", indexRoutes);
 
-app.get("/productDetail",(req,res)=>{
-    res.sendFile(path.resolve("./views/productDetail.html"))
-})
+app.get("/products", productsRoutes);
 
-app.get("/login", (req,res)=>{
-    res.sendFile(path.resolve("./views/login.html"))
-})
-
-app.get("/productCart",(req,res)=>{
-    res.sendFile(path.resolve("./views/productCart.html"))
-})
-
-
+app.get("/users", usersRoutes);
