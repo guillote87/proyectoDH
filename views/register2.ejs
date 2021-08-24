@@ -1,0 +1,30 @@
+<%-include ("./partials/header.ejs",{css: "/css/register.css"})%>
+
+<div id="vent">
+    <div class="oscurecer" id="oscurecer"></div>
+    <div class="registrar" id="registrar">
+        <input type="button">
+        <form class="form-register" action="">
+            <label class="nombre" for="nombre">Nombre</label>
+            <input type="text">
+            <label for="apellido">Apellido</label>
+            <Input type="text">
+            <label for="mail">E-mail</label>
+            <input type="text">
+            <label for="password">Password</label>
+            <input type="password">
+            <a href="/"><button>REGISTRAR</button></a>
+        </form>
+
+
+    </div>
+</div>
+<script>
+    function abrir() {
+        document.getElementById("vent").style.display = "block";
+    }
+</script>
+<%-include ("./partials/footer.ejs")%>
+</body>
+
+</html>

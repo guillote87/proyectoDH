@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%-include ("./partials/header.ejs",{css: "/css/productCart.css"})%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="/css/productCart.css">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header class="header-fixed">
-        <div class="top-header contenedor">
-
-            <img class="logo" src="/images/NICOTINE.png" alt="Logo Nicotine">
-            <div class="buscador">
-                <input type="search" name="buscador" placeholder="Buscá lo que quieras...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-            <div class="login">
-                <div class="log-web">
-                    <a href="#">Login</a>
-                    <a href="#">|</a>
-                    <a href="/login">Registrarse</a>
-                </div>
-                <div class="log-movil">
-                    <a href="/login"><i class="far fa-user"></i></a>
-                    <a href="/productCart"><i class="fas fa-shopping-bag"></i></a>
-                </div>
-            </div>
-        </div>
-        <input type="checkbox" id="menu-bar">
-        <label for="menu-bar"><i class="lni lni-menu"></i></label>
-        <nav class="menu">
-            <a href="#">Nuestros Productos</a>
-            <a href="#">Locales</a>
-            <a href="#">Promociones</a>
-            <a href="#">Nosotros</a>
-        </nav>
-    </header>
     <main>
         <h1>Tu carrito</h1>
         <section>
@@ -166,16 +125,7 @@
             </div>
         </section>
     </main>
-    <footer>
-        <section>
-            <h3>Copyright © 1999-2020 Nicotine S.R.L.</h3>
-            <div class="iconos-redes">
-                <a href="#"><i class="lni lni-instagram-original"></i></a>
-                <a href="#"><i class="lni lni-facebook-original"></i></a>
-                <a href="#"><i class="lni lni-twitter-original"></i></a>
-            </div>
-        </section>
-    </footer>
+    <%-include ("./partials/footer.ejs")%>
 </body>
 
 </html>

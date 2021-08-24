@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,15 @@
     <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="<%= css %>">
     <title>Nicotine</title>
 </head>
+
 <body>
     <header class="header-fixed">
         <div class="top-header contenedor">
 
-            <img class="logo" src="/images/NICOTINE.png" alt="Logo Nicotine">
+            <a href="/"><img class="logo" src="/images/NICOTINE.png" alt="Logo Nicotine"></a>
             <div class="buscador">
                 <input type="search" name="buscador" placeholder="Buscá lo que quieras...">
                 <button><i class="fas fa-search"></i></button>
@@ -23,13 +25,13 @@
                 <div class="log-web">
                     <a href="#">Login</a>
                     <a href="#">|</a>
-                    <a href="/login">Registrarse</a>
+                    <a href="javascript:abrir()">Registrarse</a>
                     
                     
                 </div>
                 <div class="log-movil" >
-                    <a  href="/login"><i class="far fa-user"></i></a>
-                    <a  href="/productCArt"><i class="fas fa-shopping-bag"></i></a>
+                    <a  href="/users/login"><i class="far fa-user"></i></a>
+                    <a  href="/products/cart"><i class="fas fa-shopping-bag"></i></a>
                 </div>
             </div>
         </div>
@@ -41,33 +43,8 @@
             <a href="#">Promociones</a>
             <a href="#">Nosotros</a>
         </nav>
+
     </header>
     <section class="banner">
         <img src="/images/banner.png" alt="">
     </section>
-    <section class="register">
-        <form class="form-register" action="">
-        <label for="nombre">Nombre</label>
-        <input type="text">
-        <label for="apellido">Apellido</label>
-        <Input type="text">
-        <label for="mail">E-mail</label>
-        <input type="text">
-        <label for="password">Password</label>
-        <input type="password">
-        <input class=Button type="button">
-        </form>
-  
-    </section>
-    <footer>
-        <section>
-            <h3>Copyright © 1999-2020 Nicotine S.R.L.</h3>
-            <div class="iconos-redes">
-                <a href="#"><i class="lni lni-instagram-original"></i></a>
-                <a href="#"><i class="lni lni-facebook-original"></i></a>
-                <a href="#"><i class="lni lni-twitter-original"></i></a>
-            </div>
-        </section>
-    </footer>
-</body>
-</html>

@@ -1,9 +1,9 @@
 const productsController = {
     cart: (req, res) => {
-        res.render("productCart.ejs");
-    },
+        res.render("productCart")
+        },
     detail: (req, res) => {
-        res.render("productDetail.esj");
+        res.render("productDetail");
     },
 };
 

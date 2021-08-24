@@ -1,19 +1,74 @@
-.register{
-    text-align: center;
-    border: blue 1px solid;
+@import url(header.css);
+@import url(footer.css);
+
+:root {
+    --blanco: #ffffff;
+    --grisClaro: #dcdcdc;
+    --gris: #9f9f9f;
+    --grisOscuro: #5B5B5B;
+    --negro: #060606;
+    --violeta: #a11aa0;
 }
-.form-register{
-    display:flex;
-    width: 500px;
-    height: 800px;
+
+* {
+    margin: 0px;
+}
+.oscurecer{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index:100;
+    background: rgba(0,0,0,.8);
+    display: none;
+
+}
+.registrar{
+    width: 40%;
+    background: var(--negro);
+    border-radius: 1em ;
+    border: var(--violeta) solid;
+    padding: 3em;
+    position: fixed;
+    top:100px;
+    left:30%;
+    z-index:200;
+    display: none;
+}
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--gris);
+}
+
+
+.form-register {
+    display: flex;
+    width: 40%;
+    height: 60%;
     flex-direction: column;
-    color:white;
-    background-color: black;
-    margin:auto;
+    color: var(--violeta);
+    margin: auto;
     align-items: center;
    
+
 }
-.form-register input{
-    width:70%;
-    }
+
+.nombre {
+    margin-top: 200px;
+}
+
+.form-register input {
+    width: 70%;
+    border: 0;
+    background-color: transparent;
+    border-bottom: var(--blanco) solid 2px;
+    margin-bottom: 5px;
     
+}
+
+button {
+    margin: 30px;
+    padding:10px 70px 10px 70px 
+    
+}

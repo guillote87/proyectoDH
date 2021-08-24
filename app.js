@@ -14,8 +14,8 @@ app.listen(process.env.PORT || 3000, () => {
     console.log("Servidor funcionando");
 });
 
-app.get("/", indexRoutes);
+app.use("/", indexRoutes);
 
-app.get("/products", productsRoutes);
+app.use("/products", productsRoutes);
 
-app.get("/users", usersRoutes);
+app.use("/users", usersRoutes);
