@@ -1,5 +1,6 @@
 <%-include ("./partials/header.ejs",{css: "/css/login.css"})%>
 
+<<<<<<< HEAD
     <main class="login-main">
         <section>
             <div class="login-box">
@@ -15,6 +16,39 @@
         </section>
     </main>
     <%-include ("./partials/footer.ejs")%>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+        <section class="banner">
+            <img src="/images/banner.png" alt="">
+        </section>
+        <main class="login-main">
+            <section>
+                <div class="login-box">
+                    <h2>Logueate y elegi tu remera favorita.</h2>
+                    <form action="#" method="POST">
+                        <input type="text" name="usuario" placeholder="Ingrese usuario">
+                        <input type="password" name="contraseña" placeholder="Ingrese su contraseña">
+                        <button class="button-login" type="submit">Ingresar</button>
+                        <button class="button-create-account" type="#">Crea una cuenta</button>
+                    </form>
+
+                </div>
+            </section>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+>>>>>>> 1d857fbf89d5e78650481a9dbc17c73e23bc98bb
 </body>
 
 </html>
