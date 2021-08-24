@@ -1,21 +1,20 @@
 @import url(header.css);
 @import url(footer.css);
-
 :root {
     --blanco: #ffffff;
     --grisClaro: #dcdcdc;
-    --gris:#9f9f9f;
-    --grisOscuro: #5B5B5B;
+    --gris: #9f9f9f;
+    --grisOscuro: #5b5b5b;
     --negro: #060606;
     --violeta: #a11aa0;
 }
 
-
 * {
     margin: 0px;
     padding: 0px;
-        font-family: 'Rajdhani', sans-serif;
+    font-family: "Rajdhani", sans-serif;
 }
+
 
 /* Main */
 
@@ -61,13 +60,11 @@ article {
     margin-top: 10px;
     justify-content: center;
     align-items: center;
- 
 }
 
 .button {
     width: 15px;
     margin-right: 3px;
-
     display: inline-block;
 }
 
@@ -77,7 +74,7 @@ article {
     padding: 2px;
     margin-top: 30px;
     margin-left: 20px;
- }
+}
 
 .buy-detail {
     display: flex;
@@ -87,7 +84,11 @@ article {
     text-align: center;
 }
 
-.price, .shipping, .pay-method-container, .final-price, .final-price p{
+.price,
+.shipping,
+.pay-method-container,
+.final-price,
+.final-price p {
     margin-top: 5px;
     margin-left: 15px;
 }
@@ -99,19 +100,21 @@ article {
 .shipping-price {
     margin-top: 5px;
 }
-.price{
+
+.price {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .final-price {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .final-price p {
     border: 2px var(--negro) solid;
-   
     padding: 3px;
 }
 
@@ -122,29 +125,29 @@ article {
     border: 2px var(--negro);
     border-radius: 5%;
     height: 30px;
-    margin-left:auto;
+    margin-left: auto;
     margin-bottom: 20px;
 }
 
-@media (min-width:482px){
-       article{
+@media (min-width: 482px) {
+    article {
         justify-content: space-around;
     }
-    
-    main{
+    main {
         align-items: center;
     }
-    main section{
+    main section {
         width: 70%;
     }
-    .buy-button{
+    .buy-button {
         width: 40%;
     }
-    .buy-detail{
+    .buy-detail {
         text-align: right;
         padding-right: 10px;
     }
-    .price,.final-price{
-        justify-content:flex-end;
+    .price,
+    .final-price {
+        justify-content: flex-end;
     }
 }
