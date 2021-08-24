@@ -3,7 +3,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+   
     font-family: "Rajdhani", sans-serif;
 }
 
@@ -15,7 +15,6 @@ main section {
 }
 
 .register-box {
-    box-sizing: border-box;
     max-width: 348px;
     background-color: transparent;
     padding: 15px 15px;
@@ -36,6 +35,7 @@ main section {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .send-button {
