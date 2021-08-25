@@ -5,6 +5,9 @@ const productsController = {
     detail: (req, res) => {
         res.render("productDetail");
     },
+    create: (req, res) => {
+        res.render("createProducts");
+    },
 };
 
 module.exports = productsController;
