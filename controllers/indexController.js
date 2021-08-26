@@ -3,7 +3,7 @@ const indexController = {
         res.render("index");
     },
     about: (req, res) => {
-        res.send("About");
+        res.render("about");
     },
 };
 

@@ -19,3 +19,5 @@ app.use("/", indexRoutes);
 app.use("/products", productsRoutes);
 
 app.use("/users", usersRoutes);
+
+app.use("/about", indexRoutes);
