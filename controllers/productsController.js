@@ -1,12 +1,10 @@
 const productsController = {
-    cart: (req, res) => {
-        res.render("productCart");
-    },
+   
     detail: (req, res) => {
-        res.render("productDetail");
+        res.render("products/productDetail");
     },
     create: (req, res) => {
-        res.render("createProducts");
+        res.render("products/createProducts");
     },
 };
 
