@@ -13,8 +13,12 @@ router.get("/filter/:filter", productsController.filter);
 router.get("/create", productsController.createView);
 router.post("/create", productsController.create);
 
+router.get("/create", productsController.createView) /* Ruta a la vista de la edición */ 
+router.post("/create", productsController.create)
+
 /* Rutas de edicion de productos */
 //router.get("/:id/edit");
+
 
 /* Rutas de eliminacion de productos */
 

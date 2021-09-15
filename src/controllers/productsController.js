@@ -49,5 +49,4 @@ const productsController = {
     res.redirect("/products/" + id);
   },
 };
-
 module.exports = productsController;
