@@ -23,8 +23,35 @@ const productsController = {
         res.render("index", {
             product
         })
-    }
-    
+    },
+    createView: (req, res) => {
+        res.render("createProducts")
+    },
+
+    create: (req, res) => {   
+        let image
+        if(req.files[0] != undefined) {
+            image = req.files[0].filename 
+        } else {
+            image = "default-image.png"
+        }
+        let id = products.length + 1
+        let newProduct = {
+            id: id,
+            name: req.body.name,
+            price: req.body.price,
+            category: req.body.category,
+            size: req.body.size,
+            color: req.body.color,
+            description: req.body.description,
+            image: image
+        }
+        products.push(newProduct)
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, "utf-8"))
+        res.redirect("/products/" + id)
+        },
 }
+    
+
 
 module.exports = productsController
