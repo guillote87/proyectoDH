@@ -24,7 +24,7 @@ const productsController = {
     });
   },
   createView: (req, res) => {
-    res.render("products/createProducts");
+    res.render("about");
   },
   create: (req, res) => {
     let image;
