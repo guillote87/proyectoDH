@@ -19,14 +19,12 @@
             <section>
                 <div class="create-box">
                     <h2>Agregar producto</h2>
-                    <form class="create-form">
+                    <form class="create-form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST">
                         <div class="control-form">
                             <input name="name" type="text" class="control" placeholder="<%= product.name%>" />
                         </div>
                         <div class="control-form">
-                            <textarea name="description" class="control">
-                            <%= product.description %>
-                            </textarea>
+                            <textarea name="description" class="control"><%= product.description %></textarea>
             </div>
             <div class="control-form">
               <input

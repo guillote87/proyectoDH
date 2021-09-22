@@ -55,7 +55,7 @@ const productsController = {
     },
     editForm: (req, res) => {
         let id = req.params.id;
-        let product = products.forEach((prod) => {
+        products.forEach((prod) => {
             if (prod.id == id) {
                 prod.name = req.body.name || prod.name;
                 prod.price = req.body.price || prod.price;
@@ -68,9 +68,24 @@ const productsController = {
                 prod.image = req.file == undefined ? prod.image : req.file.filename;
             }
         });
-        let productsJSON = JSON.stringify(product);
+        let productsJSON = JSON.stringify(products, "utf-8");
         fs.writeFileSync(productsFilePath, productsJSON);
-        return res.redirect("/products/" + id + "/detail/");
+        return res.redirect("/products/" + id);
+    },
+    destroy: (req, res) => {
+        id = req.params.id;
+
+        let allProducts = products.filter((prod) => prod.id != id);
+        allProducts.forEach((prod, i) => {
+            prod.id = i + 1;
+        });
+
+        console.log(allProducts);
+
+        productsJSON = JSON.stringify(allProducts);
+        fs.writeFileSync(productsFilePath, productsJSON);
+
+        res.redirect("/");
     },
 };
 
