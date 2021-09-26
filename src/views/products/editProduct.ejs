@@ -19,7 +19,7 @@
             <section>
                 <div class="create-box">
                     <h2>Agregar producto</h2>
-                    <form class="create-form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST">
+                    <form class="create-form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                         <div class="control-form">
                             <input name="name" type="text" class="control" placeholder="<%= product.name%>" />
                         </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="control-form">
               <input
-                name="photo"
+                name="image"
                 type="file"
                 accept=".jpg, .png"
                 class="control"
@@ -52,15 +52,15 @@
             <div class="control-form">
               <select name="size" class="control">
                 <option>Talle</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
               </select>
             </div>
             <div class="control-form">
               <input
-                name="precio"
+                name="price"
                 type="tel"
                 placeholder="<%= product.price %> "
                 class="control"

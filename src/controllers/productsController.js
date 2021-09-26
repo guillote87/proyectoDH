@@ -24,29 +24,24 @@ const productsController = {
         });
     },
     createView: (req, res) => {
-        res.render("about");
+        res.render("products/createProducts");
     },
     create: (req, res) => {
-        let image;
-        if (req.files[0] != undefined) {
-            image = req.files[0].filename;
-        } else {
-            image = "default-image.png";
-        }
-        let id = products.length + 1;
+    foto = req.file == undefined ? "default-image.png" : req.file.filename;
         let newProduct = {
-            id: id,
-            name: req.body.name,
-            price: req.body.price,
-            category: req.body.category,
-            size: req.body.size,
-            color: req.body.color,
-            description: req.body.description,
-            image: image,
+            "id": products.length + 1,
+            "name": req.body.name,
+            "price": req.body.price,
+            "category": req.body.category,
+            "size": req.body.size,
+            "color": req.body.color,
+            "description": req.body.description,
+            "image": foto,
+            "image2" :foto
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, "utf-8"));
-        res.redirect("/products/" + id);
+        res.redirect("/");
     },
     editView: (req, res) => {
         let id = req.params.id;
@@ -66,6 +61,7 @@ const productsController = {
                     req.body.description :
                     prod.description;
                 prod.image = req.file == undefined ? prod.image : req.file.filename;
+                prod.image2 = req.file == undefined ? prod.image : req.file.filename;
             }
         });
         let productsJSON = JSON.stringify(products, "utf-8");
