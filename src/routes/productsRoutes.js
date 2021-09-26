@@ -15,8 +15,9 @@ router.post("/create", productsController.create);
 
 /* Rutas de edicion de productos */
 router.get("/:id/edit", productsController.editView);
-router.post("/:id/edit", productsController.editForm);
+router.put("/:id/edit", productsController.editForm);
 
 /* Rutas de eliminacion de productos */
+router.delete("/:id/delete", productsController.destroy);
 
 module.exports = router;
