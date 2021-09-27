@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/createProducts.css" />
+    <title>Nicotine</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="create-box">
+          <h2>Agregar producto</h2>
+          <form class="create-form" action="/products/create" method="POST" enctype="multipart/form-data">
+            <div class="control-form">
+              <input
+                name="name"
+                type="text"
+                class="control"
+                placeholder="Nombre de tu producto"
+              />
+            </div>
+            <div class="control-form">
+              <textarea name="description" class="control"></textarea>
+            </div>
+            <div class="control-form">
+              <input
+                name="image"
+                type="file"
+                accept=".jpg, .png"
+                class="control"
+              />
+            </div>
+            <div class="control-form">
+              <select name="category" class="control">
+                <option value="music">Musica</option>
+                <option value="movies">Peliculas</option>
+              </select>
+            </div>
+            <div class="control-form">
+              <select name="color" class="control">
+                <option value="black">Negro</option>
+                <option value="gray">Gris</option>
+                <option value="white">Blanco</option>
+              </select>
+            </div>
+            <div class="control-form">
+              <select name="size" class="control">
+                <option>Talle</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+              </select>
+            </div>
+            <div class="control-form">
+              <input
+                name="price"
+                type="tel"
+                placeholder="Precio"
+                class="control"
+              />
+            </div>
+            <button type="submit" class="control">Agregar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
