@@ -23,8 +23,9 @@ const usersController = {
             password: req.body.pass1 == req.body.pass2 ? req.body.pass1 : "contraseña invalida",
             name: req.body.name,
             lastName: req.body.lastName,
-            image: req.file?.filename == undefined ? "defaultUser.png" : req.file.filename
+            image: req.file.filename == undefined ? "defaultUser.png" : req.file.filename
         }
+
         users.push(newUser)
         fs.writeFileSync(usersFilePath, JSON.stringify(users))
         res.redirect("/")
