@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 
 const usersFilePath = path.join(__dirname, "../data/usersData.json");
@@ -10,25 +12,40 @@ const usersController = {
         res.render("users/login");
     },
     loginForm: (req, res) => {
-        console.log("falta el loginForm y el create");
+
+    //falta el loginForm y el create
 
     },
     register: (req, res) => {
         res.render("users/register");
     },
     registerForm: (req, res) => {
-        let id = users.length + 1
-        let newUser = {
-            id: id == null? 1 : id,
-            password: req.body.pass1 == req.body.pass2 ? req.body.pass1 : "contraseña invalida",
-            name: req.body.name,
-            lastName: req.body.lastName,
-            image: req.file.filename == undefined ? "defaultUser.png" : req.file.filename
+        let id = users.length + 1;
+        let resVal = validationResult(req);
+
+        if (resVal.errors.length > 0) {
+            return res.render("users/register", { old: req.body, errors: resVal.mapped() })
         }
 
+        if (req.body.password != req.body.confirmation) {
+            return res.render("users/register", { old:req.body, errors: { password: { msg: "Las contraseñas no coinciden" } } })
+        }
+        
+        let newUser = {
+            id: id,
+            name: req.body.name,
+            lastName: req.body.lastName,
+            password: bcrypt.hashSync(req.body.password, 10),
+            image: req.file == undefined ? "defaultUser.png" : req.file.filename,
+            birthday: req.body.birthday,
+            category: "user",
+        }
+
+        console.log(newUser);
         users.push(newUser)
         fs.writeFileSync(usersFilePath, JSON.stringify(users))
-        res.redirect("/")
+        return res.redirect("/users/login")
+
     },
     cart: (req, res) => {
         res.render("users/productCart");
