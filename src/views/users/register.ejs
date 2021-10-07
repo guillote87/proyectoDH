@@ -2,48 +2,87 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/register.css">
-    <title>Nicotine</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" />
+  <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/register.css" />
+  <title>Nicotine</title>
 </head>
 
 <body>
-    <%- include('../partials/header.ejs') %>
-               <main>
+  <%- include('../partials/header.ejs') %>
+  <main>
+    <section>
+      <div class="register-box">
+        <h2>¡Crea tu cuenta y elegí tu diseño favorito!</h2>
 
-            <section>
-                <div class="register-box">
-                    <h2>¡Crea tu cuenta y elegí tu diseño favorito!</h2>
-                    <form action="#" method="POST" class="register-form">
-                        <div class="control-form">
-                            <input type="text" name="name" class="control" placeholder="Ingresá tu nombre y apellido">
-                        </div>
-                        <div class="control-form">
-                            <input type="email" name="email" class="control" placeholder="Ingresá un e-mail">
-                        </div>
-                        <div class="control-form">
-                            <input type="password" name="pass" class="control" placeholder="Elegí una contraseña">
-                        </div>
-                        <div class="control-form">
-                            <input type="password" name="pass" class="control" placeholder="Repetí la contraseña">
-                        </div>
-                        <div class="control-form">
-                            <label class="control">
-                            <h2>Pone tu cumpleaños</h2>
-                        <input type="date" name="birthday" min="1921-01-01" class="control" >
-                        </label>
-                        </div>
-                        <button type="submit" class="send-button">Enviar</button>
-                    </form>
-                </div>
-            </section>
-        </main>
-        <%- include('../partials/footer.ejs') %>
+        <form action="/users/register" method="POST" class="register-form" enctype="multipart/form-data">
+          <div class="control-form">
+            <input type="text" name="name" class="control" placeholder="Ingresá tu nombre" value="<%= locals.old? old.name : null  %>" />
+          </div>
+          <% if(locals?.errors?.name) {%>
+          <p class="errors">
+            <%=errors.name.msg %>
+          </p>
+          <% } %>
+          <div class="control-form">
+            <input type="text" name="lastName" class="control" placeholder="Ingresá tu apellido" value="<%= locals.old? old.lastName : null  %>"/>
+          </div>
+          <% if(locals?.errors?.lastName) {%>
+          <p class="errors">
+            <%=errors.lastName.msg %>
+          </p>
+          <% } %>
+          <div class="control-form">
+            <input type="email" name="email" class="control" placeholder="Ingresá un e-mail" value="<%= locals.old? old.email : null  %>" />
+          </div>
+          <% if(locals?.errors?.email) {%>
+          <p class="errors">
+            <%=errors.email.msg %>
+          </p>
+          <% } %>
+          <div class="control-form">
+            <input type="password" name="password" class="control" placeholder="Elegí una contraseña" />
+          </div>
+          <% if(locals?.errors?.password) {%>
+          <p class="errors">
+            <%=errors.password.msg %>
+          </p>
+          <% } %>
+          <div class="control-form">
+            <input type="password" name="confirmation" class="control" placeholder="Repetí la contraseña" />
+          </div>
+          <% if(locals?.errors?.confirmation) {%>
+          <p class="errors">
+            <%=errors.confirmation.msg %>
+          </p>
+          <% } %>
+          <div class="control-form">
+            <label for="image">
+              Elegi una foto de perfil
+              <input type="file" accept=".JPG, .PNG" name="image" class="control" />
+            </label>
+          </div>
+          <div class="control-form">
+            <label class="control">
+              <h2>Pone tu cumpleaños</h2>
+              <input type="date" name="birthday" min="1921-01-01" class="control" value="<%= locals.old? old.birthday : null  %>" />
+            </label>
+          </div>
+          <% if(locals?.errors?.birthday) {%>
+          <p class="errors">
+            <%=errors.birthday.msg %>
+          </p>
+          <% } %>
+          <button type="submit" class="send-button">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

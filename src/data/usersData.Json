@@ -1,11 +1,9 @@
-
 [{
     "id": 1,
-    "name": "Julian",
-    "lastName": "Almada",
-    "email": "julian_almada@gmail.com",
-    "password": "firulais",
-    "category": "admin",
-    "image": "1.jpg"
-    }
-]
+    "name": "Diego",
+    "lastName": "Villafañe",
+    "password": "$2a$10$7OqtSkeJzAl89Rudl4YqBOEGW92QF0LWQ7/zqu2hVL0uBP99JuMzu",
+    "image": "1633394043934.png",
+    "birthday": "1994-04-12",
+    "category": "user"
+}]

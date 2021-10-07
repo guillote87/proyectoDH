@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" />
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/createProducts.css" />
     <title>Nicotine</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <%- include('../partials/header.ejs') %>
 
-    <main>
-      <section>
-        <div class="create-box">
-          <h2>Agregar producto</h2>
-          <form class="create-form">
-            <div class="control-form">
-              <input
-                name="name"
-                type="text"
-                class="control"
-                placeholder="Nombre de tu producto"
-              />
-            </div>
-            <div class="control-form">
-              <textarea name="description" class="control"></textarea>
+        <main>
+            <section>
+                <div class="create-box">
+                    <h2>Agregar producto</h2>
+                    <form class="create-form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="control-form">
+                            <input name="name" type="text" class="control" placeholder="<%= product.name%>" />
+                        </div>
+                        <div class="control-form">
+                            <textarea name="description" class="control"><%= product.description %></textarea>
             </div>
             <div class="control-form">
               <input
-                name="photo"
+                name="image"
                 type="file"
                 accept=".jpg, .png"
                 class="control"
@@ -46,12 +36,14 @@
             </div>
             <div class="control-form">
               <select name="category" class="control">
+                <option value="">Categoria</option>
                 <option value="music">Musica</option>
                 <option value="movies">Peliculas</option>
               </select>
             </div>
             <div class="control-form">
               <select name="color" class="control">
+                <option value="">Color</option>
                 <option value="black">Negro</option>
                 <option value="gray">Gris</option>
                 <option value="white">Blanco</option>
@@ -60,17 +52,17 @@
             <div class="control-form">
               <select name="size" class="control">
                 <option>Talle</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
               </select>
             </div>
             <div class="control-form">
               <input
-                name="precio"
+                name="price"
                 type="tel"
-                placeholder="Precio"
+                placeholder="<%= product.price %> "
                 class="control"
               />
             </div>
