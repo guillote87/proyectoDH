@@ -15,6 +15,11 @@
             <section>
                 <div class="login-box">
                     <h2>Logueate y elegi tu remera favorita.</h2>
+                    <% if(locals.errors) { %>
+                        <% for (let i = 0; i < errors.length) { %>
+                            <p><%= errors.[i].msg %></p>
+                        <% } %>
+                    <% } %>
                     <form action="/users/login" method="POST">
                         <input type="text" name="user" placeholder="Ingrese usuario">
                         <input type="password" name="password" placeholder="Ingrese su contraseña">

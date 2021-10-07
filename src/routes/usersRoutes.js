@@ -4,10 +4,10 @@ const multer = require('multer')
 const path = require('path');
 
 const regVal = require('../middlewares/regValidations');
-
+const authLoginMiddleware = require('../middlewares/authLoginMiddleware')
 //CONTROLLER
 const usersController = require("../controllers/usersController");
-const authLoginMiddleware = require('../middlewares/authLoginMiddleware')
+
 
 //MULTER
 let multerDiskStorage = multer.diskStorage({
