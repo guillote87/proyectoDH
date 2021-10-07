@@ -10,9 +10,6 @@ router.get("/:id", productsController.detail);
 router.get("/filter/:filter", productsController.filter);
 
 /* Rutas de creacion de productos*/
-router.get("/create", productsController.createView);
-router.post("/create", productsController.create);
-
 router.get("/create", productsController.createView) /* Ruta a la vista de la edición */ 
 router.post("/create", productsController.create)
 
