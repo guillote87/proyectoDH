@@ -1,4 +1,121 @@
-[
-    { "id": 1, "name": "Remera Nirvana", "price": " 2000", "category": "music", "size": "Talle", "color": "black", "description": "Remera Nirvana 100% Puro Algodon", "image": "1.jpg", "image2": "1.jpg" },
-    { "id": 2, "name": "Remera Daft Punk", "price": "7000", "category": "music", "size": "M", "color": "black", "description": "Daft Punk Original", "image": "2.jpg", "image2": "2.jpg" }, { "id": 3, "name": " Remera Superman", "price": " 2000", "category": "music", "size": "M", "color": "black", "description": "Remera Frank 100% Puro Algodon", "image": "3.jpg", "image2": "2.jpg" }, { "id": 4, "name": " Remera Rick & Morty", "price": " 5433", "category": "music", "size": "XS", "color": "Negro", "description": "Remera Rick & Morty 100% Puro Algodon", "image": "4.jpg", "image2": "rick-2.jpg" }, { "id": 5, "name": "I Love you 3000", "price": "1800", "category": "movies", "size": "M", "color": "Negro", "description": "Remera Tony Stark I Love you 3000", "image": "1632692020235.jpg", "image2": "stark-2.jpg" }, { "id": 6, "name": "Remera Dadalorian", "price": "9000", "category": "movies", "size": "XL", "color": "Negro", "description": "Remera Dadalorian Star Wars", "image": "dadalorian-2.jpg", "image2": "dadalorian-1.jpg" }, { "id": 7, "name": "Remera THE BEATLES", "price": "4111", "category": "music", "size": "L", "color": "Negro", "description": "REMERA BEATLES 100% ALGODON", "image": "the-beatles.jpg", "image2": "the-beatles.jpg" }, { "id": 8, "name": "Remera Punisher", "price": "1800", "category": "movies", "size": "S", "color": "Negro", "description": "Remera Punisher", "image": "punisher-2.jpg", "image2": "punisher.jpg" }, { "id": 9, "name": "Remera Wolverine Amarilla", "price": "8000", "category": "music", "size": "S", "color": "gray", "description": "Remera Wolverine", "image": "wolve-2.jpg", "image2": "wolve.jpg" }, { "id": 10, "name": "Dark Vader Algodon", "price": "8000", "category": "movies", "size": "S", "color": "Negro", "description": "Remera Dark Vader ", "image": "dark.jpg", "image2": "dark-1.png" }, { "id": 11, "name": "Remera RadioHead", "category": "music", "size": "M", "color": "black", "description": "Remera RadioHead - Algodon", "image": "1632693711341.jpg", "price": "1850" }
+[{
+        "id": 1,
+        "name": "Remera Nirvana",
+        "price": " 2000",
+        "category": "music",
+        "size": "Talle",
+        "color": "black",
+        "description": "Remera Nirvana 100% Puro Algodon",
+        "image": "1.jpg",
+        "image2": "1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Remera Daft Punk",
+        "price": "7000",
+        "category": "music",
+        "size": "M",
+        "color": "black",
+        "description": "Daft Punk Original",
+        "image": "2.jpg",
+        "image2": "2.jpg"
+    },
+    {
+        "id": 3,
+        "name": " Remera Superman",
+        "price": " 2000",
+        "category": "music",
+        "size": "M",
+        "color": "black",
+        "description": "Remera Frank 100% Puro Algodon",
+        "image": "3.jpg",
+        "image2": "2.jpg"
+    },
+    {
+        "id": 4,
+        "name": " Remera Rick & Morty",
+        "price": " 5433",
+        "category": "music",
+        "size": "XS",
+        "color": "Negro",
+        "description": "Remera Rick & Morty 100% Puro Algodon",
+        "image": "4.jpg",
+        "image2": "rick-2.jpg"
+    },
+    {
+        "id": 5,
+        "name": "I Love you 3000",
+        "price": "1800",
+        "category": "movies",
+        "size": "M",
+        "color": "Negro",
+        "description": "Remera Tony Stark I Love you 3000",
+        "image": "1632692020235.jpg",
+        "image2": "stark-2.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Remera Dadalorian",
+        "price": "9000",
+        "category": "movies",
+        "size": "XL",
+        "color": "Negro",
+        "description": "Remera Dadalorian Star Wars",
+        "image": "dadalorian-2.jpg",
+        "image2": "dadalorian-1.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Remera THE BEATLES",
+        "price": "4111",
+        "category": "music",
+        "size": "L",
+        "color": "Negro",
+        "description": "REMERA BEATLES 100% ALGODON",
+        "image": "the-beatles.jpg",
+        "image2": "the-beatles.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Remera Punisher",
+        "price": "1800",
+        "category": "movies",
+        "size": "S",
+        "color": "Negro",
+        "description": "Remera Punisher",
+        "image": "punisher-2.jpg",
+        "image2": "punisher.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Remera Wolverine Amarilla",
+        "price": "8000",
+        "category": "music",
+        "size": "S",
+        "color": "gray",
+        "description": "Remera Wolverine",
+        "image": "wolve-2.jpg",
+        "image2": "wolve.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Dark Vader Algodon",
+        "price": "8000",
+        "category": "movies",
+        "size": "S",
+        "color": "Negro",
+        "description": "Remera Dark Vader ",
+        "image": "dark.jpg",
+        "image2": "dark-1.png"
+    },
+    {
+        "id": 11,
+        "name": "Remera RadioHead",
+        "category": "music",
+        "size": "M",
+        "color": "black",
+        "description": "Remera RadioHead - Algodon",
+        "image": "1632693711341.jpg",
+        "price": "1850"
+    }
 ]

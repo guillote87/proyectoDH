@@ -51,9 +51,8 @@ main section {
 }
 
 .send-button:hover {
-    color: rgba(107, 32, 135, 0.75);
+    background-color: rgba(107, 32, 135, 0.75);
     font-weight: bold;
-    font-size: 17px;
 }
 
 .errors{
