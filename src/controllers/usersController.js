@@ -12,11 +12,21 @@ const usersController = {
     },
     loginProcess: (req, res) =>{
         let errors = validationResult(req)
-        return res.send(errors)
         if (errors.errors.length > 0){
-            return res.render('user/register', { errors : errors.mapped() })
+            return res.render('users/login', { errors : errors.mapped() })
         }
-    },
+        let userToLogin = users.find( i => 
+            i.email == req.body.email
+        ) 
+        if (!userToLogin) {
+            return res.render('users/login', { errors : {email : {msg : "Email no encontrado"} } })
+        }
+        let loginUser = bcrypt.compareSync(req.body.password, userToLogin.password)
+        if (!loginUser) {
+            return res.render('users/login', { errors : {password : {msg : "Credenciales inválidas"} } })
+        }
+        res.send(loginUser)
+    }, 
     register: (req, res) => {
         res.render("users/register");
     },
@@ -40,6 +50,7 @@ const usersController = {
             image: req.file == undefined ? "defaultUser.png" : req.file.filename,
             birthday: req.body.birthday,
             category: "user",
+            email: req.body.email,
         }
 
         console.log(newUser);
