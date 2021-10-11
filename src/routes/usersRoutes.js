@@ -5,6 +5,8 @@ const path = require('path');
 
 const regVal = require('../middlewares/regValidations');
 const authLoginMiddleware = require('../middlewares/authLoginMiddleware')
+const guestMiddleware = require("../middlewares/guestMiddleware")
+const authMiddleware = require("../middlewares/authMiddleware")
 //CONTROLLER
 const usersController = require("../controllers/usersController");
 
@@ -28,15 +30,18 @@ let multerDiskStorage = multer.diskStorage({
 const fileUpload = multer({ storage: multerDiskStorage })
 
 //CRUD
-router.get("/login", usersController.login);
+router.get("/login",guestMiddleware,usersController.login);
 router.post("/login", authLoginMiddleware ,usersController.loginProcess)
 
 
-router.get("/register", usersController.register);
+router.get("/register",guestMiddleware,usersController.register);
 router.post("/register", fileUpload.single('image'), regVal, usersController.registerForm)
 
-router.get("/cart", usersController.cart);
+router.get("/profile",authMiddleware, usersController.profile)
+
+router.get("/cart",authMiddleware, usersController.cart);
 //post de carrito
 
+router.get("/logout",usersController.logout)
 
 module.exports = router;

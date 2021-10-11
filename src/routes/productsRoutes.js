@@ -5,6 +5,9 @@ const multer = require("multer");
 const path = require("path");
 
 const productsController = require("../controllers/productsController");
+const authMiddleware = require("../middlewares/authMiddleware");
+const guestMiddleware = require("../middlewares/guestMiddleware");
+
 
 let multerDiskStorage = multer.diskStorage ({
     destination : (req,file,callback) =>{
@@ -24,7 +27,7 @@ let multerDiskStorage = multer.diskStorage ({
 const fileUpload = multer({storage: multerDiskStorage})
 
 /* Rutas de creacion de productos*/
-router.get("/create",productsController.createView);
+router.get("/create",authMiddleware,productsController.createView);
 router.post("/create",fileUpload.single("image"), productsController.create);
 /* Rutas de detalle y filtro de productos */
 
@@ -32,19 +35,13 @@ router.get("/:id", productsController.detail);
 
 
 /* Rutas de edicion de productos */
-router.get("/:id/edit", productsController.editView);
+router.get("/:id/edit",authMiddleware, productsController.editView);
 router.put("/:id/edit",fileUpload.single("image") , productsController.editForm);
 
 
 router.get("/filter/:filter", productsController.filter);
 
-/* Rutas de creacion de productos*/
-router.get("/create", productsController.createView) /* Ruta a la vista de la edición */ 
-router.post("/create", productsController.create)
-
-
-
 /* Rutas de eliminacion de productos */
-router.delete("/:id/delete", productsController.destroy);
+router.delete("/:id/delete",authMiddleware, productsController.destroy);
 
 module.exports = router;

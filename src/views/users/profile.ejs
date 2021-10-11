@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f09d19ae7c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/profile.css">
+
+</head>
+
+<body><%- include("../partials/header.ejs")%>
+<main>
+    <div class="data">
+        <h3>Bienvenido <%= user.name + " "  + user.lastName%> </h3>
+        <img src="/images/usuarios/<%= user.image %>" alt="">
+        <p> <%= user.email %></p>
+    </div>
+    </main>
+<%-include("../partials/footer")%>
