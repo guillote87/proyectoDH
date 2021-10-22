@@ -1,1 +1,28 @@
-[{"id":1,"name":"Diego","lastName":"Villafañe","password":"$2a$10$7OqtSkeJzAl89Rudl4YqBOEGW92QF0LWQ7/zqu2hVL0uBP99JuMzu","image":"1633394043934.png","birthday":"1994-04-12","category":"user","email":"diego.villafane94@gmail.com"},{"id":2,"name":"Diego","lastName":"Ojeda","password":"$2a$10$BYCsSxVKo42xq0paPsJF7./.oIeUJRLQXw3R1rH9J9.1FLQwRVpwO","image":"1633624225925.jpg","birthday":"1998-06-13","category":"user","email":"diegojeda13@gmail.com"},{"id":3,"name":"Juan","lastName":"López","password":"$2a$10$U6q3TrQHBMruff9hgulP2ea6KWxBEaSNpiHfhnH8TAooa9vZC3Pma","image":"1633655092906.jpg","birthday":"2000-12-05","category":"user", "email":"juandev@gmail.com"}]
+[{
+    "id": 1,
+    "name": "Diego",
+    "lastName": "Villafañe",
+    "password": "$2a$10$7OqtSkeJzAl89Rudl4YqBOEGW92QF0LWQ7/zqu2hVL0uBP99JuMzu",
+    "image": "1633394043934.png",
+    "birthday": "1994-04-12",
+    "category": "user",
+    "email": "diego.villafane94@gmail.com"
+}, {
+    "id": 2,
+    "name": "Diego",
+    "lastName": "Ojeda",
+    "password": "$2a$10$BYCsSxVKo42xq0paPsJF7./.oIeUJRLQXw3R1rH9J9.1FLQwRVpwO",
+    "image": "1633624225925.jpg",
+    "birthday": "1998-06-13",
+    "category": "user",
+    "email": "diegojeda13@gmail.com"
+}, {
+    "id": 3,
+    "name": "Guillermo",
+    "lastName": "López",
+    "password": "$2a$10$U6q3TrQHBMruff9hgulP2ea6KWxBEaSNpiHfhnH8TAooa9vZC3Pma",
+    "image": "1633655092906.jpg",
+    "birthday": "2000-12-05",
+    "category": "user",
+    "email": "juandev@gmail.com"
+}]

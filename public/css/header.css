@@ -36,8 +36,9 @@ header a {
 }
 
 .buscador input {
-    width: 30rem;
-    height: 2rem;
+    width: 250px;
+    height: 25px;
+    
 }
 
 .buscador input:hover {
@@ -115,13 +116,22 @@ header label {
 }
 
 .banner {
+
     margin-top: 150px;
 }
 
 .banner img {
     width: 100%;
 }
-
+.log-img{
+    display: flex;
+    padding: 2px;
+    align-items: center;
+}
+.log-web img{
+    border: blueviolet solid 1px;
+    width: 50px;
+  }
 @media (min-width: 780px) {
     .buscador {
         display: flex;
