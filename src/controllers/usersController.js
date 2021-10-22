@@ -25,7 +25,7 @@ const usersController = {
         if (!loginUser) {
             return res.render('users/login', { errors : {password : {msg : "Credenciales inválidas"} } })
         }
-        res.send(loginUser)
+        res.redirect("/")
     }, 
     register: (req, res) => {
         res.render("users/register");
