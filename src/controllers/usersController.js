@@ -29,6 +29,16 @@ const usersController = {
             })
         }
 
+        let password = req.body.password;
+
+        db.Usuario.create({
+            name: req.body.name,
+            lastname: req.body.lastName,
+            email: req.body.email,
+            password: bcrypt.hashSync(password, 10),
+            image: req.file.filename,
+            birthday: req.body.birthday,
+        })
 
     },
     login: (req, res) => {
@@ -41,25 +51,11 @@ const usersController = {
                 errors: errors.mapped()
             })
         }
-        let userToLogin = users.find(i =>
-            i.email == req.body.email
-        )
+
 
 
 
         if (userToLogin) {
-            let loginUser = bcrypt.compareSync(req.body.password, userToLogin.password)
-
-            if (loginUser) { //Eliminamos la clave y paso los datos al session
-                delete userToLogin.password
-                req.session.userLogged = userToLogin
-
-                if (req.body.remember_user) {
-                    res.cookie("userEmail", req.body.email, { maxAge: 60000 })
-                }
-
-                res.redirect("/users/profile")
-            }
 
             return res.render('users/login', {
                 errors: {

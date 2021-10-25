@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
         },
-        rol: {
+        id_rol: {
             type: dataTypes.INTEGER,
         },
         image: {
@@ -43,14 +43,11 @@ module.exports = (sequelize, dataTypes) => {
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = (models) => {
-        Usuario.BelongsTo("Rol", {
-            foreignKey: 'rol',
+        Usuario.belongsTo(models.Rol, {
+            foreignKey: 'id_rol',
             as: 'rol'
         })
     }
-
-
-
 
     return Usuario
 }
