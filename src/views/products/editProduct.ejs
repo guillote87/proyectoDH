@@ -19,7 +19,7 @@
             <section>
                 <div class="create-box">
                     <h2>Agregar producto</h2>
-                    <form class="create-form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form class="create-form" action="/products/<%= product.id_productos %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                         <div class="control-form">
                             <input name="name" type="text" class="control" placeholder="<%= product.name%>" />
                         </div>
@@ -35,29 +35,31 @@
               />
             </div>
             <div class="control-form">
-              <select name="category" class="control">
-                <option value="">Categoria</option>
-                <option value="music">Musica</option>
-                <option value="movies">Peliculas</option>
+              <select name="category" id="" required class="control">
+         
+                <% allCategories.forEach(category => { %>
+                <option value="<%= category.id_category %>"><% if (product.category == category.id_category) { %><% }; %><%= category.description %></option>
+                <% }); %>
               </select>
+  
+            </div>
+                        <div class="control-form">
+              <select name="color" id="" required class="control">
+                
+                <% allColors.forEach(color => { %>
+                <option value="<%= color.id_color %>"><% if (product.color == color.id_color) { %><% }; %><%= color.description %></option>
+                <% }); %>
+              </select>
+              
+
             </div>
             <div class="control-form">
-              <select name="color" class="control">
-                <option value="">Color</option>
-                <option value="black">Negro</option>
-                <option value="gray">Gris</option>
-                <option value="white">Blanco</option>
+              <select name="size" id="" required class="control">
+           
+                <% allSizes.forEach(size => { %>
+                <option value="<%= size.id_size %>"><% if (product.size == size.id_size) { %><% }; %><%= size.description %></option>
+                <% }); %>
               </select>
-            </div>
-            <div class="control-form">
-              <select name="size" class="control">
-                <option>Talle</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-              </select>
-            </div>
             <div class="control-form">
               <input
                 name="price"
