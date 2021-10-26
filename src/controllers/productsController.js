@@ -1,52 +1,85 @@
 const fs = require("fs");
 const path = require("path");
-
-const productsFilePath = path.join(__dirname, "../data/productsData.json");
+const db = require('../database/models')
+/* const productsFilePath = path.join(__dirname, "../data/productsData.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");*/     // DE CUANDO USABAMOS JSON
 
 const productsController = {
     detail: (req, res) => {
         let id = req.params.id;
-        let product = products.find((product) => product.id == id);
-        let interes = products.filter((product) => product.id != id);
-        res.render("products/productDetail", {
-            product: product,
-            interes: interes,
-        });
+
+        db.Producto.findAll()
+            .then(interes => {
+                db.Producto.findByPk(id)
+                    .then(product => {
+                        res.render("products/productDetail", {
+                            product,
+                            interes
+                        });
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     },
     filter: (req, res) => {
         let filter = req.params.filter;
-        let product = products.filter((product) => product.category == filter);
+        db.Producto.findAll()
+        .then(productos=>{
+
+        let product = productos.filter((productos) => productos.category == filter);
         res.render("index", {
             product,
         });
+        })
     },
     createView: (req, res) => {
-        res.render("products/createProducts");
+
+        db.Color.findAll()
+            .then((allColors) => {
+                db.Category.findAll()
+                    .then((allCategories) => {
+                        db.Size.findAll()
+                            .then((allSizes) => {
+                                res.render("products/createProducts", {
+                                    allColors,
+                                    allCategories,
+                                    allSizes
+                                });
+                            })
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
     },
     create: (req, res) => {
-    foto = req.file == undefined ? "default-image.png" : req.file.filename;
-        let newProduct = {
-            "id": products.length + 1,
-            "name": req.body.name,
-            "price": req.body.price,
-            "category": req.body.category,
-            "size": req.body.size,
-            "color": req.body.color,
-            "description": req.body.description,
-            "image": foto,
-            "image2" :foto
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, "utf-8"));
-        res.redirect("/");
+        foto = req.file == undefined ? "default-image.png" : req.file.filename;
+
+        db.Producto.create({
+                name: req.body.name,
+                description: req.body.description,
+                category: req.body.category,
+                color: req.body.color,
+                size: req.body.size,
+                price: req.body.price,
+                image: foto
+            })
+            .then(() => {
+                res.redirect('/users/login');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
     editView: (req, res) => {
         let id = req.params.id;
-        let product = products.find((prod) => prod.id == id);
-        res.render("products/editProduct", { product: product });
+      db.Producto.findByPk(id)
+      .then(product =>{
+        res.render("products/editProduct", {product});
+      })
     },
     editForm: (req, res) => {
         let id = req.params.id;

@@ -22,7 +22,7 @@
                 <% for (let i=0; i < 4 ; i++) { %>
                     <div class="contenedor-interes">
                         <div>
-                            <a href="/products/<%= interes[i].id%>"><img
+                            <a href="/products/<%= interes[i].id_productos%>"><img
                 class="imagen-interes"
                 src="/images/productos/<%= interes[i].image %>"
                 alt="Buzo"
@@ -71,7 +71,7 @@
             /></a>
                         <a href="#"><img
                 class="remera2"
-                src="/images/productos/<%= product.image2%>"
+                src="/images/productos/<%= product.image%>"
                 alt="Blanca"
             /></a>
                     </div>
@@ -119,13 +119,13 @@
                 </div>
                 <div class="edit">
                     <div class="boton">
-                        <a href="/products/<%= product.id %>/edit"><button>Editar producto</button></a
+                        <a href="/products/<%= product.id_productos %>/edit"><button>Editar producto</button></a
             >
           </div>
         </div>
         <div class="delete">
           <form
-            action="/products/<%= product.id %>/delete?_method=DELETE"
+            action="/products/<%= product.id_productos %>/delete?_method=DELETE"
             method="POST"
           >
             <div class="boton">

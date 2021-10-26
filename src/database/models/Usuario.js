@@ -5,29 +5,29 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER(11),
         },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(50),
             allowNull: false,
         },
         lastname: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(50),
             allowNull: false,
         },
         email: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false,
         },
         password: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false,
         },
         rol: {
             type: dataTypes.INTEGER,
         },
         image: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         birthday: {
@@ -43,14 +43,11 @@ module.exports = (sequelize, dataTypes) => {
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = (models) => {
-        Usuario.BelongsTo("Rol", {
-            foreignKey: 'rol',
-            as: 'rol'
+        Usuario.belongsTo(models.Rol, {
+            as: 'roles',
+            foreignKey: 'rol'
+
         })
     }
-
-
-
-
     return Usuario
 }
