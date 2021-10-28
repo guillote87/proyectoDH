@@ -11,10 +11,18 @@ const indexController = {
     index: (req, res) => {
         //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         db.Producto.findAll()
-            .then(products => {
-                res.render("index", {
-                    product: products
-                })
+            .then((product) => {
+                db.Color.findAll()
+                    .then((allColors) => {
+                        db.Size.findAll()
+                            .then((allSizes) => {
+                                res.render("index", {
+                                    product,
+                                    allColors,
+                                    allSizes
+                                })
+                            })
+                    })
             })
     },
     about: (req, res) => {

@@ -19,8 +19,16 @@
                 <a href="/products/<%= product[i].id_productos%>"><img src="/images/productos/<%= product[i].image %>" alt=""></a>
                 <div class="main-article">
                     <h4 class="description"> <%= product[i].name%></h4>
-                    <p class="color"> COLOR <%= product[i].color%></p>
-                    <p class="discount"> TALLE <%= product[i].size%></p>
+                   
+                    <% allColors.forEach(color => { %>
+                         <% if (product[i].color == color.id_color) { %>
+                            <p class="color"> COLOR <%= color.description %> </p> <% }; %>
+                        <% }); %> 
+                        <% allSizes.forEach(size => { %>
+                            <% if (product[i].size == size.id_size) { %>
+                                <p class="size"> TALLE <%= size.description %> </p> <% }; %>
+                           <% }); %>    
+                   
                     <p class="price">$ <%= product[i].price%></p>
                    
                 </div>

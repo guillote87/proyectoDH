@@ -99,7 +99,8 @@ const productsController = {
         },
         editForm: (req, res) => {
             let id = req.params.id;
-            db.Producto.update({
+            let prod = db.Producto.findByPk(id)
+                        db.Producto.update({
                     name: req.body.name || prod.name,
                     price : req.body.price || prod.price,
                     category : req.body.category || prod.category,

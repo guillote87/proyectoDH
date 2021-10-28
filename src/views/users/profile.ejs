@@ -19,6 +19,12 @@
         <h3>Bienvenido <%= user.name + " "  + user.lastname%> </h3>
         <img src="/images/usuarios/<%= user.image %>" alt="">
         <p> <%= user.email %></p>
+        
+        <% allRoles.forEach(rol => { %>
+            <% if (user.rol == rol.id_roles) { %>
+             <p class="rol"> <%= rol.description %> </p> <% }; %>
+           <% }); %>    
+       
     </div>
     </main>
 <%-include("../partials/footer")%>

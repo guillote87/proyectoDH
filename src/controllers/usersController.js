@@ -59,8 +59,11 @@ const usersController = {
 
     profile: (req, res) => {
         console.log(req.session.userLogged)
+        db.Rol.findAll()
+        .then((allRoles)=>{
         return res.render("users/profile", {
-            user: req.session.userLogged
+            user: req.session.userLogged , allRoles
+        })
         })
     },
     register: (req, res) => {

@@ -14,3 +14,6 @@ main img{
         border: solid violet 2px;
     width: 15%;
 }
+.rol{
+    font-weight: bold;
+}

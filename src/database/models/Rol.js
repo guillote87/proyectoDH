@@ -3,12 +3,12 @@ module.exports = (sequelize, dataTypes) => {
     let cols = {
         id_roles: {
             primaryKey: true,
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER(11),
             allowNull: false,
             autoIncrement: true,
         },
         description: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(50),
             allowNull: false,
         },
     };

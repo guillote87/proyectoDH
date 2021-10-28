@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         rol: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER(11),
         },
         image: {
             type: dataTypes.STRING(45),
