@@ -30,12 +30,14 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 const indexRoutes = require("./routes/indexRoutes");
 const productsRoutes = require("./routes/productsRoutes");
 const usersRoutes = require("./routes/usersRoutes");
+const colorsRoutes = require("./routes/colorsRoutes");
 
 
 
 app.use("/", indexRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+app.use("/colors",colorsRoutes)
 
 
 

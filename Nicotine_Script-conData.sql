@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `nicotine` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `nicotine`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: nicotine
@@ -243,4 +245,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-28 12:07:41
+-- Dump completed on 2021-10-28 13:51:58

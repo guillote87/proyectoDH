@@ -4,19 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas ordas por rating</title>
-
+  
 </head>
 
 <body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
+
     <h1>Listado de Colores</h1>
     <ul>
         <% for( let i = 0; i < colors.length; i++ ) { %>
         <li>
-            <a href="colors[i].id_color%>"><%= colors[i].description %> </a> <br>
+       <ul> <%= colors[i].id_color%> <%= colors[i].description %> </ul> 
         </li>
         <% } %>
 

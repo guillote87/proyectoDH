@@ -3,21 +3,14 @@ const sequelize = db.sequelize;
 
 
 const colorsController = {
-    'list': (req, res) => {
-        db.Color.findAll()
-            .then(colors => {
-                res.render('colorList.ejs', {colors})
-            })
-    },
-    'create': (req, res) => {
-        db.Color.create({
-            description : req.body.description
+        list: (req, res) => {
+            db.Color.findAll()
+                .then(colors => {
+                    console.log(colors)
+                    res.render("colors/colorList",{colors})
+                })
         }
-            .then(genre => {
-                res.render('genresDetail.ejs', {genre});
-            });
     }
+     
 
-}
-
-module.exports = colorsController;
+        module.exports = colorsController;
