@@ -12,5 +12,4 @@ const colorsController = {
         }
     }
      
-
         module.exports = colorsController;

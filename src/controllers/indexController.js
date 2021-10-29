@@ -9,21 +9,6 @@ const db = require('../database/models')
 
 const indexController = {
     index: (req, res) => {
-        //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        /*  db.Producto.findAll()
-              .then((product) => {
-                  db.Color.findAll()
-                      .then((allColors) => {
-                          db.Size.findAll()
-                              .then((allSizes) => {
-                                  res.render("index", {
-                                      product,
-                                      allColors,
-                                      allSizes
-                                  })
-                              })
-                      })
-              }) */
         db.Producto.findAll({
                 include: ["colors", "sizes"]
             })
@@ -46,9 +31,7 @@ const indexController = {
             search: searched,
             products: find
         })
-
     }
-
 }
 
 module.exports = indexController;

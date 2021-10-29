@@ -20,10 +20,8 @@
         <img src="/images/usuarios/<%= user.image %>" alt="">
         <p> <%= user.email %></p>
         
-        <% allRoles.forEach(rol => { %>
-            <% if (user.rol == rol.id_roles) { %>
-             <p class="rol"> <%= rol.description %> </p> <% }; %>
-           <% }); %>    
+        <p class="rol"> <%= user.roles.description %> </p>
+           
        
     </div>
     </main>

@@ -17,15 +17,16 @@ const usersController = {
                 errors: errors.mapped()
             })
         }
-        db.Usuario.findAll()
+        db.Usuario.findAll({
+            include : ["roles"]
+        })
             .then(users => {
                 let userToLogin = users.find(i =>
                     i.email == req.body.email
                 )
-
                 if (userToLogin) {
                     let loginUser = bcrypt.compareSync(req.body.password, userToLogin.password)
-
+                   
                     if (loginUser) { //Eliminamos la clave y paso los datos al session
                         delete userToLogin.password
                         req.session.userLogged = userToLogin
@@ -58,13 +59,10 @@ const usersController = {
     },
 
     profile: (req, res) => {
-        console.log(req.session.userLogged)
-        db.Rol.findAll()
-        .then((allRoles)=>{
-        return res.render("users/profile", {
-            user: req.session.userLogged , allRoles
+               return res.render("users/profile", {
+            user: req.session.userLogged 
         })
-        })
+        
     },
     register: (req, res) => {
         res.render("users/register");
