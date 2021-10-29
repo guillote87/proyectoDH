@@ -3,7 +3,7 @@ const createError = require('http-errors');
 const express = require("express");
 const logger = require("morgan");
 const path = require("path");
-const session = require ("express-session")
+const session = require("express-session")
 const cookies = require("cookie-parser")
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
 
@@ -14,13 +14,13 @@ const app = express();
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public'))); // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
-app.use(logger('dev'));
-app.use(express.json());
+app.use(logger('dev')); //log de errores para el desarrollador modulo morgan
+app.use(express.json()); //permite leer json
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE<
-app.use(session({secret:"Llave secreta",resave: false, saveUninitialized:false}))
+app.use(session({ secret: "Llave secreta", resave: false, saveUninitialized: false }))
 app.use(cookies())
-app.use (userLoggedMiddleware)
-// ************ Template Engine - (don't touch) ************
+app.use(userLoggedMiddleware)
+    // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
