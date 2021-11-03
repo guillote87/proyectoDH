@@ -6,30 +6,30 @@
             <div class="buscador">
                 <form action="/search">
                     <input type="search" name="buscador" placeholder="Buscá lo que quieras...">
-                    <button><i class="fas fa-search"></i></button>
+                    <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
             <div class="login">
                 <div class="log-web">
                     <% if (locals.isLogged){ %>
-<div class= "log-img">
-                    <img src="/images/usuarios/<%= locals.userLogged.image%>" alt="">
-                    <a href="#">   Hola, <%= locals.userLogged.name %> </a>
-                </div>
-                    <a href="/users/profile">Mi Perfil</a>
-                    <a href="#">|</a>
-                    <a href="/users/logout">Logout</a>
+                        <div class="log-img">
+                            <img src="/images/usuarios/<%= locals.userLogged.image%>" alt="">
+                            <a href="#">   Hola, <%= locals.userLogged.name %> </a>
+                        </div>
+                        <a href="/users/profile">Mi Perfil</a>
+                        <a href="#">|</a>
+                        <a href="/users/logout">Logout</a>
                 </div>
                 <% }else{ %>
-                <a href="/users/login">Login</a>
-                <a href="#">|</a>
-                <a href="/users/register">Registrarse</a>
+                    <a href="/users/login">Login</a>
+                    <a href="#">|</a>
+                    <a href="/users/register">Registrarse</a>
             </div>
             <% } %>
-            <div class="log-movil">
-                <a href="/users/login"><i class="far fa-user"></i></a>
-                <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
-            </div>
+                <div class="log-movil">
+                    <a href="/users/login"><i class="far fa-user"></i></a>
+                    <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
+                </div>
         </div>
         </div>
         <input type="checkbox" id="menu-bar">

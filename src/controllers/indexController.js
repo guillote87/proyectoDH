@@ -13,24 +13,25 @@ const indexController = {
                 include: ["colors", "sizes"]
             })
             .then(product => {
-                res.render("index", {product})
+                res.render("index", { product })
             })
     },
     about: (req, res) => {
         res.render("about")
     },
     search: (req, res) => {
-        let searched = req.query.buscador;
-        let find = [];
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].name.includes(searched)) {
-                find.push(products[i])
-            }
-        }
-        return res.render("search", {
-            search: searched,
-            products: find
-        })
+        let search = req.query.buscador;
+        db.Producto.findAll({
+                where: {
+                    name: {
+                        [db.Sequelize.Op.like]: `%${search}%`
+                    }
+                },
+                include: ["colors", "sizes"]
+            })
+            .then(product => {
+                res.render("search", { product })
+            })
     }
 }
 
