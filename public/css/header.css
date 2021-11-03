@@ -38,11 +38,18 @@ header a {
 .buscador input {
     width: 250px;
     height: 25px;
-    
 }
 
 .buscador input:hover {
     border: 3px solid var(--violeta);
+}
+
+form {
+    display: flex;
+}
+
+button {
+    height: 25px;
 }
 
 .login {
@@ -116,22 +123,24 @@ header label {
 }
 
 .banner {
-
     margin-top: 150px;
 }
 
 .banner img {
     width: 100%;
 }
-.log-img{
+
+.log-img {
     display: flex;
     padding: 2px;
     align-items: center;
 }
-.log-web img{
+
+.log-web img {
     border: blueviolet solid 1px;
     width: 50px;
-  }
+}
+
 @media (min-width: 780px) {
     .buscador {
         display: flex;
