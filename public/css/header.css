@@ -44,11 +44,11 @@ header a {
     border: 3px solid var(--violeta);
 }
 
-form {
+.search-form {
     display: flex;
 }
 
-button {
+.search-button {
     height: 25px;
 }
 
