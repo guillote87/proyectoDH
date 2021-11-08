@@ -65,8 +65,13 @@ article input{
     
 }
 .cant-art-carrito{
+  
     width: 100px;
     text-align:center;
+   
+}
+.cant-art-carrito p{
+    font-size: 20px;
 }
 .precioUni{
     width: 150px;

@@ -28,14 +28,14 @@
                 <h2><%= cart.producto[i].description%></h2>
                 <p>Color: <%= cart.producto[i].color%></p>
                 <p>Talle: <%= cart.producto[i].size%></p>
+                <p>Precio: <%= cart.producto[i].price%></p>
             </div>
             <div class="cant-art-carrito">
                 <i class="fas fa-minus"></i>
-              <p></p>  <%= cart.producto[i].CartDetail.cantidad%></p> 
+              <input type="text" value = <%= cart.producto[i].CartDetail.cantidad%> >
                <i class="fas fa-plus"></i>
             </div>
             <div class="precioUni">
-                <p><%= cart.producto[i].price%></p>
                <% locals.linea =  (cart.producto[i].CartDetail.cantidad * cart.producto[i].price)%>
                 <p><%=  cart.producto[i].CartDetail.cantidad * cart.producto[i].price%></p>
                 <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
