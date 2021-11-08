@@ -16,132 +16,114 @@
 
 <body>
     <%- include ('../partials/header.ejs') %>
-        <main>
-            <section class="interes">
-                <h2>Tambien podría interesarte</h2>
-                <% for (let i=0; i < 4 ; i++) { %>
-                    <div class="contenedor-interes">
-                        <div>
-                            <a href="/products/<%= interes[i].id_productos%>"><img
-                class="imagen-interes"
-                src="/images/productos/<%= interes[i].image %>"
-                alt="Buzo"
-            /></a>
-                        </div>
-                        <div class="info-interes">
-                            <h3 class="titulo-interes">
-                                <%= interes[i].name %>
-                            </h3>
-                            <p class="precio-interes">$
-                                <%= interes[i].price %>
-                            </p>
-                            <p class="talle-interes">Talles disponibles</p>
-                            <div class="div-talle">
-                                <p>S</p>
-                                <p>M</p>
-                                <p>XL</p>
-                            </div>
-                        </div>
+    <main>
+        <section class="interes">
+            <h2>Tambien podría interesarte</h2>
+            <% for (let i=0; i < 4 ; i++) { %>
+            <div class="contenedor-interes">
+                <div>
+                    <a href="/products/<%= interes[i].id_productos%>"><img class="imagen-interes"
+                            src="/images/productos/<%= interes[i].image %>" alt="Buzo" /></a>
+                </div>
+                <div class="info-interes">
+                    <h3 class="titulo-interes">
+                        <%= interes[i].name %>
+                    </h3>
+                    <p class="precio-interes">$
+                        <%= interes[i].price %>
+                    </p>
+                    <p class="talle-interes">Talles disponibles</p>
+                    <div class="div-talle">
+                        <p>S</p>
+                        <p>M</p>
+                        <p>XL</p>
                     </div>
-                    <% } %>
-            </section>
-            <section class="producto">
-                <div class="ruta">
-                    <a href="#">Inicio </a>
-                    <p>></p>
-                    <a href="#">Remeras </a>
-                    <p>></p>
-                    <a href="#">Artistas musicales </a>
-                    <p>></p>
-                    <a href="#">Radiohead </a>
-                    <p>></p>
-                    <a href="#">Remera Radiohead</a>
                 </div>
-                <div class="titulo-producto">
-                    <h2>
-                        <%= product.name %>
-                    </h2>
-                </div>
-                <div class="contenedor-fotos">
-                    <div class="remeras-lateral">
-                        <a href="#"><img
-                class="remera2"
-                src="/images/productos/<%= product.image%>"
-                alt="Blanca"
-            /></a>
-                        <a href="#"><img
-                class="remera2"
-                src="/images/productos/<%= product.image%>"
-                alt="Blanca"
-            /></a>
-                    </div>
-                    <img class="remera" src="/images/productos/<%= product.image%>" alt="#" />
-                </div>
-            </section>
-            <section class="detalles">
-                <div class="precio">
-                    <h2>
-                        <%= product.description%>
-                                           </h2>
-                    <br />
-                    <br />
-                    <h2>$
-                        <%= product.price%>
-                    </h2>
-                    <span>x 6 cuotas sin interés</span>
-                </div>
-                <form action="#" method="POST" class="form">
-                    <label for="talle"></label>
-                    <select class="talle" name="talle" id="talle">
-            <option>Talle</option>
-            <option value="s">S</option>
-            <option value="m">M</option>
-            <option value="l">L</option>
-            <option value="xl">XL</option>
-          </select>
-                    <label for="color"></label>
-                    <select class="color" name="color" id="color">
-            <option>Color</option>
-            <option value="negro">Negro</option>
-            <option value="blanco">Blanco</option>
-          </select>
-                    <label for="cantidad"></label>
-                    <select class="cantidad" name="cantidad" id="cantidad">
-            <option>Cantidad</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-                </form>
-                <div class="boton">
-                    <button type="submit">Agregar al Carrito</button>
-                </div>
-                <div class="edit">
-                    <div class="boton">
-                        <a href="/products/<%= product.id_productos %>/edit"><button>Editar producto</button></a
-            >
-          </div>
-        </div>
-        <div class="delete">
-          <form
-            action="/products/<%= product.id_productos %>/delete?_method=DELETE"
-            method="POST"
-          >
-            <div class="boton">
-              <button type="submit">Borrar producto</button>
             </div>
-          </form>
-        </div>
-        <div class="contenedor-mercado">
-          <img
-            class="mercado"
-            src="/images/mercado-pago.png"
-            alt="Mercado Pago"
-          />
-        </div>
-      </section>
+            <% } %>
+        </section>
+        <section class="producto">
+            <div class="ruta">
+                <a href="#">Inicio </a>
+                <p>></p>
+                <a href="#">Remeras </a>
+                <p>></p>
+                <a href="#">Artistas musicales </a>
+                <p>></p>
+                <a href="#">Radiohead </a>
+                <p>></p>
+                <a href="#">Remera Radiohead</a>
+            </div>
+            <div class="titulo-producto">
+                <h2>
+                    <%= product.name %>
+                </h2>
+            </div>
+            <div class="contenedor-fotos">
+                <div class="remeras-lateral">
+                    <a href="#"><img class="remera2" src="/images/productos/<%= product.image%>" alt="Blanca" /></a>
+                    <a href="#"><img class="remera2" src="/images/productos/<%= product.image%>" alt="Blanca" /></a>
+                </div>
+                <img class="remera" src="/images/productos/<%= product.image%>" alt="#" />
+            </div>
+        </section>
+        <section class="detalles">
+            <div class="precio">
+                <h2>
+                    <%= product.description%>
+                </h2>
+                <br />
+                <br />
+                <h2>$
+                    <%= product.price%>
+                </h2>
+                <span>x 6 cuotas sin interés</span>
+            </div>
+            <form action="#" method="POST" class="form">
+                <label for="talle"></label>
+                <select class="talle" name="talle" id="talle">
+                    <option>Talle</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                </select>
+                <label for="color"></label>
+                <select class="color" name="color" id="color">
+                    <option>Color</option>
+                    <option value="negro">Negro</option>
+                    <option value="blanco">Blanco</option>
+                </select>
+                <label for="cantidad"></label>
+                <select class="cantidad" name="cantidad" id="cantidad">
+                    <option>Cantidad</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </form>
+            <div class="boton">
+                <a href="/products/<%= product.id_productos %>/cart"><button>Agregar al carrito</button></a>
+            </div>
+            <div class="edit">
+                <div class="boton">
+                    <a href="/products/<%= product.id_productos %>/edit"><button>Editar producto</button></a>
+                </div>
+            </div>
+            <div class="delete">
+                <form action="/products/<%= product.id_productos %>/delete?_method=DELETE" method="POST">
+                    <div class="boton">
+                        <button type="submit">Borrar producto</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contenedor-mercado">
+                <img class="mercado" src="/images/mercado-pago.png" alt="Mercado Pago" />
+            </div>
+        </section>
     </main>
     <%-include ("../partials/footer.ejs")%>
-  </body>
+</body>
+
 </html>

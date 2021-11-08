@@ -33,11 +33,18 @@ module.exports = (sequelize, dataTypes) => {
         birthday: {
             type: dataTypes.DATE,
             allowNull: false,
-        }
+        },
+        created_at : dataTypes.DATE,
+        updated_at : dataTypes.DATE,
+        deleted_at: dataTypes.DATE
     };
     let config = {
         tableName: "usuarios",
-        timestamps: false,
+        timestamps: true,
+        createdAt : "created_at",
+        updatedAt: "updated_at",
+        deletedAt : "deleted_at",
+        paranoid : true
     }
 
     const Usuario = sequelize.define(alias, cols, config);
@@ -46,8 +53,14 @@ module.exports = (sequelize, dataTypes) => {
         Usuario.belongsTo(models.Rol, {
             as: 'roles',
             foreignKey: 'rol'
-
         })
+
+        Usuario.associate = (models) => {
+            Usuario.hasOne(models.Cart, {
+                as: "carrito",
+                foreignKey: "user_id"
+            })
+        }
     }
     return Usuario
 }

@@ -3,10 +3,23 @@ const {
     body
 } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const db = require('../database/models')
+const db = require('../database/models');
+
+
 
 
 const usersController = {
+    list: (req, res) => {
+        db.Usuario.findAll({
+                include: ["roles"]
+            })
+            .then((users) => {
+                res.json(users)
+                res.render("users/usersList", {
+                    users
+                })
+            })
+    },
     login: (req, res) => {
         res.render("users/login");
     },
@@ -18,15 +31,15 @@ const usersController = {
             })
         }
         db.Usuario.findAll({
-            include : ["roles"]
-        })
+                include: ["roles"]
+            })
             .then(users => {
                 let userToLogin = users.find(i =>
                     i.email == req.body.email
                 )
                 if (userToLogin) {
                     let loginUser = bcrypt.compareSync(req.body.password, userToLogin.password)
-                   
+
                     if (loginUser) { //Eliminamos la clave y paso los datos al session
                         delete userToLogin.password
                         req.session.userLogged = userToLogin
@@ -59,10 +72,10 @@ const usersController = {
     },
 
     profile: (req, res) => {
-               return res.render("users/profile", {
-            user: req.session.userLogged 
+        return res.render("users/profile", {
+            user: req.session.userLogged
         })
-        
+
     },
     register: (req, res) => {
         res.render("users/register");
@@ -111,8 +124,29 @@ const usersController = {
         return res.redirect("/")
     },
     cart: (req, res) => {
-        res.render("users/productCart");
+        let user = req.session.userLogged
+        db.Cart.findAll({
+            include :"producto",
+            where :{ id_usuario : user.id_usuario }
+        })
+            .then(cart => {
+               // res.json(cart)
+                 res.render("users/productCart",{cart});
+            })
+
     },
+    destroy: function (req, res) {
+        let userId = req.params.id;
+        db.Usuario.destroy({
+                where: {
+                    id_usuario: userId
+                }
+            }) // force: true es para asegurar que se ejecute la acción
+            .then(() => {
+                return res.redirect('/users/usersList')
+            })
+            .catch(error => res.send(error))
+    }
     //cartForm
 };
 

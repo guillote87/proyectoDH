@@ -13,7 +13,7 @@ const indexController = {
                 include: ["colors", "sizes"]
             })
             .then(product => {
-                res.render("index", {product})
+                           res.render("index", {product})
             })
     },
     about: (req, res) => {

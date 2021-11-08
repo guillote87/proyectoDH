@@ -33,10 +33,12 @@ const productsController = {
                 name: req.body.name,
                 description: req.body.description,
                 category: req.body.category,
-                color: req.body.color,
-                size: req.body.size,
+                id_color: req.body.color,
+                id_size: req.body.size,
                 price: req.body.price,
                 image: foto
+            }, {
+                include: ["colors", "sizes"]
             })
             .then(() => {
                 res.redirect('/users/login');
@@ -50,11 +52,14 @@ const productsController = {
 
         db.Producto.findAll()
             .then(interes => {
-                db.Producto.findByPk(id,{
-                    include: ["colors","sizes"]
-                })
+                db.Producto.findByPk(id, {
+                        include: ["colors", "sizes"]
+                    })
                     .then(product => {
-                        res.render("products/productDetail", {product,interes});
+                        res.render("products/productDetail", {
+                            product,
+                            interes
+                        });
                     })
             })
             .catch((error) => {
@@ -100,26 +105,28 @@ const productsController = {
     },
     editForm: (req, res) => {
         let id = req.params.id;
-        let prod = db.Producto.findByPk(id)
-        db.Producto.update({
-                name: req.body.name || prod.name,
-                price: req.body.price || prod.price,
-                category: req.body.category || prod.category,
-                size: req.body.size || prod.size,
-                color: req.body.color || prod.color,
-                description: req.body.description ? req.body.description : prod.description,
-                image: req.file == undefined ? prod.image : req.file.filename
+        db.Producto.findByPk(id)
+            .then(prod => {
+                db.Producto.update({
+                        name: req.body.name || prod.name,
+                        price: req.body.price || prod.price,
+                        category: req.body.category || prod.category,
+                        size: req.body.size || prod.size,
+                        color: req.body.color || prod.color,
+                        description: req.body.description ? req.body.description : prod.description,
+                        image: req.file == undefined ? prod.image : req.file.filename
 
-            }, {
-                where: {
-                    id_productos: id
-                }
-            })
-            .then(() => {
-                return res.redirect("/products/" + id);
-            })
-            .catch(error => res.send(error))
+                    }, {
+                        where: {
+                            id_productos: id
+                        }
+                    })
+                    .then(() => {
+                        return res.redirect("/products/" + id);
+                    })
+                    .catch(error => res.send(error))
 
+            })
     },
 
 
@@ -138,6 +145,20 @@ const productsController = {
 
         res.redirect("/");
     },
+    /*cartAdd: (req, res) => {
+        db.CartDetail.create({
+            id_producto: req.body.id_productos,
+            id_carrito: 7,
+            cantidad: 1
+        
+        })
+        .then(() => {
+            res.redirect('/users/cart');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }*/
 };
 
 module.exports = productsController;

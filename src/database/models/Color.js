@@ -9,11 +9,18 @@ module.exports = (sequelize, dataTypes) => {
         description: {
             type: dataTypes.STRING(45),
             allowNull: false,
-        },
+        }, created_at : dataTypes.DATE,
+        updated_at : dataTypes.DATE,
+        deleted_at: dataTypes.DATE
     };
     let config = {
         tableName: "colores",
-        timestamps: false,
+        timestamps: true,
+        createdAt : "created_at",
+        updatedAt: "updated_at",
+        deletedAt : "deleted_at",
+        paranoid : true
+
     }
     const Color = sequelize.define(alias, cols, config);
 

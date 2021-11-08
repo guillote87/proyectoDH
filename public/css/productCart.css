@@ -1,153 +1,197 @@
 @import url(header.css);
-@import url(footer.css);
+
 :root {
     --blanco: #ffffff;
     --grisClaro: #dcdcdc;
-    --gris: #9f9f9f;
-    --grisOscuro: #5b5b5b;
+    --gris:#9f9f9f;
+    --grisOscuro: #5B5B5B;
     --negro: #060606;
     --violeta: #a11aa0;
 }
+body{
+    background-color: #9f9f9f;
+}
+
 
 * {
     margin: 0px;
     padding: 0px;
-    font-family: "Rajdhani", sans-serif;
+    font-family: 'Rajdhani', sans-serif;
 }
-
 
 /* Main */
 
 main {
-    margin-top: 80px;
     display: flex;
     flex-direction: column;
 }
-
-main h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
+main img{
+    width: 150px;
+}
+main h1{
+    margin-top: 50px;
+    margin-left: 20px;
+}
+article img{
+    width: 100px;
+    margin-right: 15px;
 }
 
+article .contenedor{
+    border: solid black 2px;
+    width: auto;
+}
 article {
     display: flex;
-    border: 2px var(--grisOscuro) solid;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    border-top: solid blue 1.5px;
+    margin: auto;
     margin-bottom: 15px;
 }
+article input{
+    width: 45px;
+    height: 40px;
+    border: black solid 1px;
+    border-radius: 20%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
 
-.remera {
+}
+.desc-art-carrito{
+    width: 250px;
+    
+}
+.cant-art-carrito{
+    width: 100px;
+    text-align:center;
+}
+.precioUni{
     width: 150px;
 }
 
-.info {
-    margin-left: 5px;
+.Envio{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
 }
 
-.talle {
-    margin-top: 7px;
-}
 
-.quantity {
-    position: relative;
-    width: 25px;
-    text-align: center;
-    border: 1px solid var(--negro);
-    margin-right: 2px;
-}
-
-.button-container {
-    display: flex;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
-.button {
-    width: 15px;
-    margin-right: 3px;
-    display: inline-block;
-}
-
-.trash i {
-    color: red;
-    border: red 1px solid;
-    padding: 2px;
-    margin-top: 30px;
-    margin-left: 20px;
-}
-
-.buy-detail {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid var(--negro);
-    background-color: var(--grisClaro);
+.precioUni{
+    font-size: 15px;
+    color:rgb(7, 17, 8);
     text-align: center;
 }
-
-.price,
-.shipping,
-.pay-method-container,
-.final-price,
-.final-price p {
-    margin-top: 5px;
-    margin-left: 15px;
+.precioUni p{
+    margin-right: 10px;
 }
 
-.total {
-    margin-left: 20px;
-}
-
-.shipping-price {
-    margin-top: 5px;
-}
-
-.price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.final-price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.final-price p {
-    border: 2px var(--negro) solid;
-    padding: 3px;
-}
-
-.buy-button {
-    width: 50%;
+.pay-method-container{ 
+    text-align: center;
     margin-top: 10px;
-    background-color: var(--violeta);
-    border: 2px var(--negro);
-    border-radius: 5%;
-    height: 30px;
-    margin-left: auto;
-    margin-bottom: 20px;
+}
+.pay-method-container h3{
+    font-size:24px ;
+}
+.pay-method-container select{
+    font-size: 20px;
+}
+.pago-envio{
+background-color:white;
+padding: 10px;
+
+}
+div.comprar{
+    width: 100%;
+    text-align: center;
+ }
+
+.comprar button{
+    margin-top: 15px;
+    width: 80%;
+    font-size: 25px;
+    padding: 10px 28px 9px ;    
+}
+button:hover {
+   background-color: var(--violeta);
+   color:white
+}
+.buy-detail{
+    border-bottom: var(--violeta) 1px solid;
+    text-align: center;    
+    margin-top: 5px;  
+}
+.shipping ,.price{
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+}
+.price .total{
+    font-weight: bold;
 }
 
-@media (min-width: 482px) {
-    article {
-        justify-content: space-around;
+
+@media (min-width: 482px){
+
+    .precioUni{
+        font-size: 18px;
+        color:rgb(7, 17, 8);
+       display: flex;
+       justify-content: center;
     }
-    main {
-        align-items: center;
+    .cant-art-carrito{
+        width: 170px;
+        text-align:center;
     }
-    main section {
-        width: 70%;
+    article img{
+        width: 130px;
     }
-    .buy-button {
-        width: 40%;
+ 
+   
+}
+@media (min-width: 783px){
+
+    .precioUni{
+    font-size: 25px;
+   display: flex;
+       justify-content: center;
     }
-    .buy-detail {
-        text-align: right;
-        padding-right: 10px;
+    .cant-art-carrito{
+      
+        width: 140px;
+        text-align:center;
     }
-    .price,
-    .final-price {
-        justify-content: flex-end;
+    section article {  
+        width: 80%;
     }
+    main h1{
+            margin-left: 10%;
+    }
+    article img{
+        width: 160px;
+    }
+    .comprar{
+        width: 50%;
+    }
+    .shipping, .price{
+        justify-content: flex-end;  
+    }
+    .shipping p, .price p{
+      margin-left: 25px;
+    }
+    .pay-method-container{ 
+    display: flex;
+    justify-content:flex-end ;
+    }
+    .pay-method-container h3{
+        margin-right: 45px;
+    }
+    div.comprar{
+                text-align: right;
+     }
+     .comprar button{
+         width: 30%;
+     }
 }

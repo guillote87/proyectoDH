@@ -1,0 +1,153 @@
+@import url(header.css);
+@import url(footer.css);
+:root {
+    --blanco: #ffffff;
+    --grisClaro: #dcdcdc;
+    --gris: #9f9f9f;
+    --grisOscuro: #5b5b5b;
+    --negro: #060606;
+    --violeta: #a11aa0;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Rajdhani", sans-serif;
+}
+
+
+/* Main */
+
+main {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+main h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+article {
+    display: flex;
+    border: 2px var(--grisOscuro) solid;
+    margin-bottom: 15px;
+}
+
+.remera {
+    width: 150px;
+}
+
+.info {
+    margin-left: 5px;
+}
+
+.talle {
+    margin-top: 7px;
+}
+
+.quantity {
+    position: relative;
+    width: 25px;
+    text-align: center;
+    border: 1px solid var(--negro);
+    margin-right: 2px;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 15px;
+    margin-right: 3px;
+    display: inline-block;
+}
+
+.trash i {
+    color: red;
+    border: red 1px solid;
+    padding: 2px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.buy-detail {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--negro);
+    background-color: var(--grisClaro);
+    text-align: center;
+}
+
+.price,
+.shipping,
+.pay-method-container,
+.final-price,
+.final-price p {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.total {
+    margin-left: 20px;
+}
+
+.shipping-price {
+    margin-top: 5px;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-price p {
+    border: 2px var(--negro) solid;
+    padding: 3px;
+}
+
+.buy-button {
+    width: 50%;
+    margin-top: 10px;
+    background-color: var(--violeta);
+    border: 2px var(--negro);
+    border-radius: 5%;
+    height: 30px;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 482px) {
+    article {
+        justify-content: space-around;
+    }
+    main {
+        align-items: center;
+    }
+    main section {
+        width: 70%;
+    }
+    .buy-button {
+        width: 40%;
+    }
+    .buy-detail {
+        text-align: right;
+        padding-right: 10px;
+    }
+    .price,
+    .final-price {
+        justify-content: flex-end;
+    }
+}

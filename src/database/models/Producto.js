@@ -1,3 +1,5 @@
+const CartDetail = require("./CartDetail")
+
 module.exports = (sequelize, dataTypes) => {
     let alias = "Producto"
     let cols = {
@@ -34,11 +36,18 @@ module.exports = (sequelize, dataTypes) => {
         price: {
             type: dataTypes.DOUBLE(10,2),
             allowNull: false
-        }
+        },
+        created_at : dataTypes.DATE,
+        updated_at : dataTypes.DATE,
+        deleted_at: dataTypes.DATE
     }
     let config = {
         tableName: "productos",
-        timestamps: false
+        timestamps: true,
+        createdAt : "created_at",
+        updatedAt: "updated_at",
+        deletedAt : "deleted_at",
+        paranoid : true
     }
 
     const Producto = sequelize.define(alias, cols, config)
@@ -47,18 +56,21 @@ module.exports = (sequelize, dataTypes) => {
         Producto.belongsTo(models.Size, {
             as: 'sizes',
             foreignKey: 'size'
-
         }),
         Producto.belongsTo(models.Color, {
             as: 'colors',
             foreignKey: 'color'
-
         }),
         Producto.belongsTo(models.Category, {
             as: 'categories',
             foreignKey: 'category'
-
+        }),
+        Producto.belongsToMany(models.Cart,{
+            as : "carrito",
+            through : "CartDetail"
         })
+        
+
 
     }
 

@@ -1,4 +1,4 @@
-colores-- MySQL Workbench Forward Engineering
+-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -11,16 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema Nicotine
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Nicotine` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema notas_db
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema notas_db
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `notas_db` DEFAULT CHARACTER SET utf8 ;
-USE `Nicotine` ;
+CREATE SCHEMA IF NOT EXISTS `NicotineTest` DEFAULT CHARACTER SET utf8 ;
 
 -- -----------------------------------------------------
 -- Table `Nicotine`.`roles`

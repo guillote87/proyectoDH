@@ -33,15 +33,19 @@ const fileUpload = multer({ storage: multerDiskStorage })
 router.get("/login",guestMiddleware,usersController.login);
 router.post("/login", authLoginMiddleware ,usersController.loginProcess)
 
+router.get("/list",usersController.list)
+
 
 router.get("/register",guestMiddleware,usersController.register);
 router.post("/register", fileUpload.single('image'), regVal, usersController.registerForm)
 
 router.get("/profile",authMiddleware, usersController.profile)
 
-router.get("/cart",authMiddleware, usersController.cart);
+router.get("/cart", usersController.cart);
 //post de carrito
 
 router.get("/logout",usersController.logout)
+
+router.delete('/delete/:id', usersController.destroy);
 
 module.exports = router;
