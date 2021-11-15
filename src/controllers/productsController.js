@@ -56,6 +56,7 @@ const productsController = {
                         include: ["colors", "sizes"]
                     })
                     .then(product => {
+                       // res.json(product)
                         res.render("products/productDetail", { product, interes });
                     })
             })
@@ -127,35 +128,21 @@ const productsController = {
     },
 
 
-    destroy: (req, res) => {
-        id = req.params.id;
-
-        let allProducts = products.filter((prod) => prod.id != id);
-        allProducts.forEach((prod, i) => {
-            prod.id = i + 1;
-        });
-
-        console.log(allProducts);
-
-        productsJSON = JSON.stringify(allProducts);
-        fs.writeFileSync(productsFilePath, productsJSON);
-
-        res.redirect("/");
-    },
-    /*cartAdd: (req, res) => {
-        db.CartDetail.create({
-            id_producto: req.body.id_productos,
-            id_carrito: 7,
-            cantidad: 1
+    destroy: function (req, res) {
+        let productId = req.params.id;
+        db.Producto.destroy({
+                where: {
+                    id_productos: productId
+                }
+            }) // force: true es para asegurar que se ejecute la acción
+            .then(() => {
+                return res.redirect("/");
+            })
+            .catch(error => res.send(error))
+    }
         
-        })
-        .then(() => {
-            res.redirect('/users/cart');
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }*/
+    
+   
 };
 
 module.exports = productsController;

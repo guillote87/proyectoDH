@@ -125,15 +125,57 @@ const usersController = {
     },
     cart: (req, res) => {
         let user = req.session.userLogged
-        db.Cart.findAll({
-            include :"producto",
-            where :{ id_usuario : user.id_usuario }
-        })
+        db.Cart.findOne({
+                where: {
+                    id_usuario: user.id_usuario
+                },
+                include: db.Producto
+            })
             .then(cart => {
-               // res.json(cart)
-                 res.render("users/productCart",{cart});
+                //res.json(cart)
+                res.render("users/productCart", {
+                    cart
+                });
             })
 
+    },
+    addToCart: (req, res) => {
+        const id_producto = req.params.id;
+
+
+        db.Cart.findByPk(req.session.userLogged.id_usuario, {
+                include: db.Producto
+            })
+            .then(cart => {
+
+
+                let product_found = cart.Productos.find(p => p.id_productos == id_producto)
+
+                if (product_found) {
+                    db.CartDetail.update({
+
+                        cantidad: product_found.CartDetail.cantidad + 1
+                    }, {
+                        where: {
+
+                            CartIdCarrito: req.session.userLogged.id_usuario,
+                            ProductoIdProductos: id_producto
+                        }
+                    }).then(() => {
+                        return res.redirect('/users/cart')
+                    })
+
+                } else {
+                    cart.addProducto(id_producto, {
+                            through: {
+                                cantidad: 1
+                            }
+                        })
+                        .then(() => {
+                            return res.redirect('/users/cart')
+                        })
+                }
+            })
     },
     destroy: function (req, res) {
         let userId = req.params.id;

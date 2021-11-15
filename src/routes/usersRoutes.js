@@ -42,6 +42,7 @@ router.post("/register", fileUpload.single('image'), regVal, usersController.reg
 router.get("/profile",authMiddleware, usersController.profile)
 
 router.get("/cart", usersController.cart);
+router.get("/cart/:id", usersController.addToCart);
 //post de carrito
 
 router.get("/logout",usersController.logout)

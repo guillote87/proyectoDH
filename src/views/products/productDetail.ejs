@@ -12,6 +12,7 @@
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/productDetail.css" />
+    <script src="../../script/script.js"></script>
 </head>
 
 <body>
@@ -104,7 +105,7 @@
                 </select>
             </form>
             <div class="boton">
-                <a href="/products/<%= product.id_productos %>/cart"><button>Agregar al carrito</button></a>
+                <a href="/users/cart/<%= product.id_productos %>"><button>Agregar al carrito</button></a>
             </div>
             <div class="edit">
                 <div class="boton">

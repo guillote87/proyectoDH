@@ -19,25 +19,24 @@
 
         <h1>Tu carrito</h1>
         <% locals.suma = 0 %>
-        <%  cart.forEach(cart=>{ %>
-
-        <% for (i=0;i< cart.producto.length; i++) {  %>
+        
+        <% for (i=0;i< cart.Productos.length; i++) {  %>
         <article>
-            <img class="remera" src="/images/productos/<%= cart.producto[i].image%>" alt="">
+            <img class="remera" src="/images/productos/<%= cart.Productos[i].image%>" alt="">
             <div class="desc-art-carrito">
-                <h2><%= cart.producto[i].description%></h2>
-                <p>Color: <%= cart.producto[i].color%></p>
-                <p>Talle: <%= cart.producto[i].size%></p>
-                <p>Precio: <%= cart.producto[i].price%></p>
+                <h2><%= cart.Productos[i].description%></h2>
+                <p>Color: <%= cart.Productos[i].color%></p>
+                <p>Talle: <%= cart.Productos[i].size%></p>
+                <p>Precio: <%= cart.Productos[i].price%></p>
             </div>
             <div class="cant-art-carrito">
                 <i class="fas fa-minus"></i>
-              <input type="text" value = <%= cart.producto[i].CartDetail.cantidad%> >
+              <input type="text" value = <%= cart.Productos[i].CartDetail.cantidad%> >
                <i class="fas fa-plus"></i>
             </div>
             <div class="precioUni">
-               <% locals.linea =  (cart.producto[i].CartDetail.cantidad * cart.producto[i].price)%>
-                <p><%=  cart.producto[i].CartDetail.cantidad * cart.producto[i].price%></p>
+               <% locals.linea =  (cart.Productos[i].CartDetail.cantidad * cart.Productos[i].price)%>
+                <p><%=  cart.Productos[i].CartDetail.cantidad * cart.Productos[i].price%></p>
                 <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
               
             </div>
@@ -45,7 +44,7 @@
 
         <% locals.suma =  locals.suma + locals.linea }%>
          
-    <%})%>
+   
     </section>
 
     <section class="pago-envio">
