@@ -33,7 +33,7 @@ main section {
     box-sizing: border-box;
 }
 
-form button {
+.create-form button {
     align-self: center;
     justify-self: center;
     width: 100%;
@@ -44,7 +44,7 @@ form button {
     font-weight: bold;
 }
 
-form button:hover {
+.create-form button:hover {
     background-color: rgba(107, 32, 135, 0.75);
     color: #ffffff;
 }

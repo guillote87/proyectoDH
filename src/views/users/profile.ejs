@@ -21,8 +21,15 @@
         <p> <%= user.email %></p>
         
         <p class="rol"> <%= user.roles.description %> </p>
-           
-       
+            
     </div>
+    <% if (user.roles.id_roles == 1) { %>
+    <div class = "task">
+       <ul> 
+        <li> <a href="/products/create">Crear Producto</a></li> 
+           <li>   <a href="/users/update">Editar Perfil</a></li> 
+    </ul>
+    </div>
+    <% } %>
     </main>
 <%-include("../partials/footer")%>

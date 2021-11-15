@@ -2,6 +2,7 @@
 header {
     height: 150px;
     background-color: black;
+    font-family: "Rajdhani", sans-serif;
 }
 
 header a {
@@ -38,6 +39,7 @@ header a {
 .buscador input {
     width: 250px;
     height: 25px;
+    font-family: "Rajdhani", sans-serif;
 }
 
 .buscador input:hover {

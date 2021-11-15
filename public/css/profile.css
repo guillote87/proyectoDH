@@ -6,7 +6,11 @@
     box-sizing: border-box;
     font-family: "Rajdhani", sans-serif;
 }
+main{
+    display: flex;
+}
 main div {
+    padding: 20px;
     margin-left: 30px;
     background-color: white;
 }
@@ -16,4 +20,7 @@ main img{
 }
 .rol{
     font-weight: bold;
+}
+.task{
+    align-content: center;
 }

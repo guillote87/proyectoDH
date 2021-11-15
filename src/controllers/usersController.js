@@ -129,10 +129,15 @@ const usersController = {
                 where: {
                     id_usuario: user.id_usuario
                 },
-                include: db.Producto
+                include:{
+                     model : db.Producto,
+                    include :[
+                       "colors","sizes"
+                    ]},
+                
             })
             .then(cart => {
-                //res.json(cart)
+                // res.json(cart)
                 res.render("users/productCart", {
                     cart
                 });
@@ -142,37 +147,56 @@ const usersController = {
     addToCart: (req, res) => {
         const id_producto = req.params.id;
 
-
+        console.log(req.body)
         db.Cart.findByPk(req.session.userLogged.id_usuario, {
                 include: db.Producto
             })
             .then(cart => {
+                
+                if (cart != null) {
+                    let product_found = cart.Productos.find(p => p.id_productos == id_producto)
 
 
-                let product_found = cart.Productos.find(p => p.id_productos == id_producto)
+                    if (product_found) {
+                        db.CartDetail.update({
 
-                if (product_found) {
-                    db.CartDetail.update({
+                            cantidad: product_found.CartDetail.cantidad + parseInt(req.body.cantidad)
 
-                        cantidad: product_found.CartDetail.cantidad + 1
-                    }, {
-                        where: {
+                        }, {
+                            where: {
 
-                            CartIdCarrito: req.session.userLogged.id_usuario,
-                            ProductoIdProductos: id_producto
-                        }
-                    }).then(() => {
-                        return res.redirect('/users/cart')
-                    })
-
-                } else {
-                    cart.addProducto(id_producto, {
-                            through: {
-                                cantidad: 1
+                                CartIdCarrito: req.session.userLogged.id_usuario,
+                                ProductoIdProductos: id_producto
                             }
+                        }).then(() => {
+                            return res.redirect('/users/cart')
+                        })
+
+                    } else {
+                        cart.addProducto(id_producto, {
+                                through: {
+                                    cantidad: req.body.cantidad
+                                }
+                            })
+                            .then(() => {
+                                return res.redirect('/users/cart')
+                            })
+                    }
+                } else {
+                    db.Cart.create({
+                            id_carrito: req.session.userLogged.id_usuario,
+                            id_usuario: req.session.userLogged.id_usuario,
+                            total: 0
                         })
                         .then(() => {
-                            return res.redirect('/users/cart')
+                            db.CartDetail.create({
+                                    CartIdCarrito: req.session.userLogged.id_usuario,
+                                    ProductoIdProductos: id_producto,
+                                    cantidad: req.body.cantidad
+                                })
+                                .then(() => {
+                                    return res.redirect('/users/cart')
+                                })
                         })
                 }
             })

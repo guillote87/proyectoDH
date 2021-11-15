@@ -33,15 +33,15 @@ const productsController = {
                 name: req.body.name,
                 description: req.body.description,
                 category: req.body.category,
-                id_color: req.body.color,
-                id_size: req.body.size,
+                color: req.body.color,
+                size: req.body.size,
                 price: req.body.price,
                 image: foto
             }, {
                 include: ["colors", "sizes"]
             })
             .then(() => {
-                res.redirect('/users/login');
+                res.redirect('/');
             })
             .catch((error) => {
                 console.log(error);
@@ -56,7 +56,7 @@ const productsController = {
                         include: ["colors", "sizes"]
                     })
                     .then(product => {
-                       // res.json(product)
+                      //  res.json(product)
                         res.render("products/productDetail", { product, interes });
                     })
             })

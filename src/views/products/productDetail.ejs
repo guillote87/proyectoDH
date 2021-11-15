@@ -80,33 +80,30 @@
                 </h2>
                 <span>x 6 cuotas sin interés</span>
             </div>
-            <form action="#" method="POST" class="form">
+            <form action="/users/cart/<%= product.id_productos %>" method="POST" class="form">
                 <label for="talle"></label>
                 <select class="talle" name="talle" id="talle">
                     <option>Talle</option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
+                    <option value=<%= product.sizes.id_size %>> <%= product.sizes.description %> </option>
                 </select>
                 <label for="color"></label>
                 <select class="color" name="color" id="color">
                     <option>Color</option>
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
+                    <option value=<%= product.colors.id_color %>> <%= product.colors.description %> </option>
                 </select>
                 <label for="cantidad"></label>
                 <select class="cantidad" name="cantidad" id="cantidad">
-                    <option>Cantidad</option>
+                
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
+                <div class="boton">
+                   <button type="submit">Agregar al carrito</button></a>
+                </div>
             </form>
-            <div class="boton">
-                <a href="/users/cart/<%= product.id_productos %>"><button>Agregar al carrito</button></a>
-            </div>
+           
             <div class="edit">
                 <div class="boton">
                     <a href="/products/<%= product.id_productos %>/edit"><button>Editar producto</button></a>

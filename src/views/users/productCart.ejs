@@ -19,14 +19,14 @@
 
         <h1>Tu carrito</h1>
         <% locals.suma = 0 %>
-        
+        <% if (cart != null) { %>
         <% for (i=0;i< cart.Productos.length; i++) {  %>
         <article>
             <img class="remera" src="/images/productos/<%= cart.Productos[i].image%>" alt="">
             <div class="desc-art-carrito">
                 <h2><%= cart.Productos[i].description%></h2>
-                <p>Color: <%= cart.Productos[i].color%></p>
-                <p>Talle: <%= cart.Productos[i].size%></p>
+                <p>Color: <%= cart.Productos[i].colors.description %></p>
+                <p>Talle: <%= cart.Productos[i].sizes.description %></p>
                 <p>Precio: <%= cart.Productos[i].price%></p>
             </div>
             <div class="cant-art-carrito">
@@ -38,11 +38,11 @@
                <% locals.linea =  (cart.Productos[i].CartDetail.cantidad * cart.Productos[i].price)%>
                 <p><%=  cart.Productos[i].CartDetail.cantidad * cart.Productos[i].price%></p>
                 <a class="trash" href="#"><i class="far fa-trash-alt"></i></a>
-              
             </div>
         </article>
-
+       
         <% locals.suma =  locals.suma + locals.linea }%>
+        <% } %>
          
    
     </section>
