@@ -4,6 +4,7 @@ const {
 } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const Usuario = require('../database/models/Usuario');
 
 
 
@@ -89,7 +90,22 @@ const usersController = {
                 errors: resVal.mapped()
             })
         }
-
+        db.Usuario.findAll()
+            .then(users => {
+                let userToRegister = users.find(i =>
+                    i.email == req.body.email
+                )
+                if (userToRegister) {
+                    return res.render("users/register", {
+                        old: req.body,
+                        errors: {
+                            email: {
+                                msg: "Este email ya esta registrado"
+                            }
+                        }
+                    })
+                }
+            })
         if (req.body.password != req.body.confirmation) {
             return res.render("users/register", {
                 old: req.body,
@@ -129,12 +145,13 @@ const usersController = {
                 where: {
                     id_usuario: user.id_usuario
                 },
-                include:{
-                     model : db.Producto,
-                    include :[
-                       "colors","sizes"
-                    ]},
-                
+                include: {
+                    model: db.Producto,
+                    include: [
+                        "colors", "sizes"
+                    ]
+                },
+
             })
             .then(cart => {
                 // res.json(cart)
@@ -152,7 +169,7 @@ const usersController = {
                 include: db.Producto
             })
             .then(cart => {
-                
+
                 if (cart != null) {
                     let product_found = cart.Productos.find(p => p.id_productos == id_producto)
 

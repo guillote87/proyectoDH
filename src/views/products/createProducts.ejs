@@ -9,7 +9,8 @@
   <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/createProducts.css" />
-  <title>Nicotine</title>
+
+    <title>Nicotine</title>
 </head>
 
 <body>
@@ -21,14 +22,29 @@
         <h2>Agregar producto</h2>
         <form class="create-form" action="/products/create" method="POST" enctype="multipart/form-data">
           <div class="control-form">
-            <input name="name" type="text" class="control" placeholder="Nombre de tu producto" />
+            <input name="name" type="text" class="control" placeholder="Nombre de tu producto" value="<%= locals.old? old.name : null  %>" />
           </div>
+          <% if(locals?.errors?.name) {%>
+            <p class="errors">
+              <%=errors.name.msg %>
+            </p>
+            <% } %>
           <div class="control-form">
-            <textarea name="description" class="control"></textarea>
+            <textarea name="description" class="control" value="<%= locals.old? old.description : null  %>" ></textarea>
           </div>
+          <% if(locals?.errors?.description) {%>
+            <p class="errors">
+              <%=errors.description.msg %>
+            </p>
+            <% } %>
           <div class="control-form">
             <input name="image" type="file" accept=".jpg, .png" class="control" />
           </div>
+          <% if(locals?.errors?.image) {%>
+            <p class="errors">
+              <%=errors.image.msg %>
+            </p>
+            <% } %>
           <div class="control-form">
             <select name="category" id="" required class="control">
               <option value="" disabled selected>- selecciona categoria - </option>
@@ -57,6 +73,11 @@
           <div class="control-form">
             <input name="price" type="tel" placeholder="Precio" class="control" />
           </div>
+          <% if(locals?.errors?.price) {%>
+            <p class="errors">
+              <%=errors.price.msg %>
+            </p>
+            <% } %>
           <button type="submit" class="control">Agregar</button>
         </form>
       </div>
@@ -64,6 +85,8 @@
   </main>
 
   <%- include('../partials/footer.ejs') %>
+
+  
 </body>
 
 </html>

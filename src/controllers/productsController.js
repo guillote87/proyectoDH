@@ -1,9 +1,13 @@
 const fs = require("fs");
 const path = require("path");
+const {
+    validationResult,
+    body
+} = require('express-validator');
 const db = require('../database/models')
-    /* const productsFilePath = path.join(__dirname, "../data/productsData.json");
-    const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");*/ // DE CUANDO USABAMOS JSON
+/* const productsFilePath = path.join(__dirname, "../data/productsData.json");
+const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");*/ // DE CUANDO USABAMOS JSON
 
 const productsController = {
     createView: (req, res) => {
@@ -29,24 +33,52 @@ const productsController = {
     create: (req, res) => {
         foto = req.file == undefined ? "default-image.png" : req.file.filename;
 
-        db.Producto.create({
-                name: req.body.name,
-                description: req.body.description,
-                category: req.body.category,
-                color: req.body.color,
-                size: req.body.size,
-                price: req.body.price,
-                image: foto
-            }, {
-                include: ["colors", "sizes"]
-            })
-            .then(() => {
-                res.redirect('/');
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        let errors = validationResult(req)
+        console.log("ERRRORES " + errors.errors.length)
+
+        if (errors.errors.length > 0) {
+            db.Color.findAll()
+                .then((allColors) => {
+                    db.Category.findAll()
+                        .then((allCategories) => {
+                            db.Size.findAll()
+                                .then((allSizes) => {
+                                    
+                                    return res.render("products/createProducts", {
+                                        old: req.body,
+                                        allColors,
+                                        allCategories,
+                                        allSizes,
+                                        errors: errors.mapped(),
+
+                                    });
+                                })
+                        })
+                })
+        } else {
+            db.Producto.create({
+                    name: req.body.name,
+                    description: req.body.description,
+                    category: req.body.category,
+                    color: req.body.color,
+                    size: req.body.size,
+                    price: req.body.price,
+                    image: foto
+                }, {
+                    include: ["colors", "sizes"]
+                })
+                .then(() => {
+                    return res.redirect('/');
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+
+
+
     },
+
     detail: (req, res) => {
         let id = req.params.id;
 
@@ -56,8 +88,11 @@ const productsController = {
                         include: ["colors", "sizes"]
                     })
                     .then(product => {
-                      //  res.json(product)
-                        res.render("products/productDetail", { product, interes });
+                        //  res.json(product)
+                        res.render("products/productDetail", {
+                            product,
+                            interes
+                        });
                     })
             })
             .catch((error) => {
@@ -103,6 +138,7 @@ const productsController = {
     },
     editForm: (req, res) => {
         let id = req.params.id;
+
         db.Producto.findByPk(id)
             .then(prod => {
                 db.Producto.update({
@@ -140,9 +176,9 @@ const productsController = {
             })
             .catch(error => res.send(error))
     }
-        
-    
-   
+
+
+
 };
 
 module.exports = productsController;

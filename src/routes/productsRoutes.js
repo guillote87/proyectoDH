@@ -4,9 +4,11 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
+
 const productsController = require("../controllers/productsController");
 const authMiddleware = require("../middlewares/authMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
+const productsValidations = require('../middlewares/productsValidations');
 
 
 let multerDiskStorage = multer.diskStorage ({
@@ -28,7 +30,7 @@ const fileUpload = multer({storage: multerDiskStorage})
 
 /* Rutas de creacion de productos*/
 router.get("/create",authMiddleware,productsController.createView);
-router.post("/create",fileUpload.single("image"), productsController.create);
+router.post("/create",fileUpload.single("image"),productsValidations, productsController.create);
 /* Rutas de detalle y filtro de productos */
 
 router.get("/:id", productsController.detail);
@@ -36,7 +38,7 @@ router.get("/:id", productsController.detail);
 
 /* Rutas de edicion de productos */
 router.get("/:id/edit",authMiddleware, productsController.editView);
-router.put("/:id/edit",fileUpload.single("image") , productsController.editForm);
+router.put("/:id/edit",fileUpload.single("image") ,productsValidations, productsController.editForm);
 
 
 router.get("/filter/:filter", productsController.filter);
