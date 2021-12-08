@@ -4,6 +4,8 @@ window.addEventListener("load", function () {
     // Selecciono todos los inputs del form con ID register-form
 
     const inputs = document.querySelectorAll("#register-form input")
+
+    const botonImagen = document.getElementById('image');
     // expresiones para validar
     const expresiones = {
         nombre: /^[a-zA-ZÀ-ÿ\s]{2,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -13,7 +15,7 @@ window.addEventListener("load", function () {
 
     const campos = {
         name: false,
-        lastname: false,
+        lastName: false,
         email: false,
         password: false,
     }
@@ -24,7 +26,7 @@ window.addEventListener("load", function () {
             case "name":
                 validarCampo(expresiones.nombre, e.target, e.target.name)
                 break
-            case "lastname":
+            case "lastName":
                 validarCampo(expresiones.nombre, e.target, e.target.name)
                 break
             case "email":
@@ -34,13 +36,36 @@ window.addEventListener("load", function () {
                 validarCampo(expresiones.password, e.target, e.target.name)
                 validarPass()
                 break
+            
             case "confirmation":
                 validarPass()
                 break
         }
     }
 
+    botonImagen.addEventListener("change", ()=>{
+        fileValidation()
+        })
 
+    function fileValidation() {
+        var image = document.getElementById('image');
+        var filePath = image.value;
+        var extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
+        if (!extensiones.exec(filePath)) {
+            alert('Solo se permiten las siguientes extensiones .jpeg/.jpg/.png/.gif.');
+            image.value = '';
+            return false;
+        } else {
+            //Image preview
+            if (image.files && image.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('avatar').innerHTML = '<img src="' + e.target.result + '"/>';
+                };
+                reader.readAsDataURL(image.files[0]);
+            }
+        }
+    }
 
     const validarCampo = (expresion, input, campo) => {
         if (expresion.test(input.value)) {
@@ -92,13 +117,12 @@ window.addEventListener("load", function () {
     })
 
 
+    formulario.addEventListener("submit", enviarForm)
 
-    formulario.addEventListener("submit", (e) => {
+
+    function enviarForm(e) {
         e.preventDefault()
-
-
-        if (campos.name && campos.lastname && campos.email && campos.password) {
-            formulario.reset()
+        if (campos.name && campos.lastName && campos.email && campos.password) {
 
             document.getElementById("envio-exitoso").classList.add("envio-exitoso-activo")
             // Pongo tiempo de ejecucion y despues que vuelva a desaparecer
@@ -110,11 +134,13 @@ window.addEventListener("load", function () {
                 icono.classList.remove("formulario__grupo-correcto")
             })
             document.getElementById("mensaje-error").classList.remove("mensaje-error-activo")
-        }else{
+            this.submit()
+
+        } else {
             document.getElementById("mensaje-error").classList.add("mensaje-error-activo")
+
         }
-    })
 
-
+    }
 
 })

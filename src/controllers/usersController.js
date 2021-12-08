@@ -83,7 +83,7 @@ const usersController = {
     },
     registerForm: (req, res) => {
         let resVal = validationResult(req);
-
+        console.log("ERRRORES " + resVal.errors.length)
         if (resVal.errors.length > 0) {
             return res.render("users/register", {
                 old: req.body,

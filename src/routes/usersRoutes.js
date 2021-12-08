@@ -37,7 +37,7 @@ router.get("/list",usersController.list)
 
 
 router.get("/register",guestMiddleware,usersController.register);
-router.post("/register", fileUpload.single('image'), regVal, usersController.registerForm)
+router.post("/register",fileUpload.single('image'), regVal, usersController.registerForm)
 
 router.get("/profile",authMiddleware, usersController.profile)
 

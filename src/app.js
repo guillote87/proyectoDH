@@ -32,12 +32,21 @@ const productsRoutes = require("./routes/productsRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 const colorsRoutes = require("./routes/colorsRoutes");
 
+//Aquí llamo a la ruta de las api de usuarios
+const apiUsersRouter = require('./routes/api/usersAPIRoute')
+//Aquí llamo a la ruta de las api de actors
+const apiProductsRouter = require('./routes/api/productsAPIRoute')
 
 
 app.use("/", indexRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 app.use("/colors",colorsRoutes)
+
+//(APIs)
+app.use('/api/users',apiUsersRouter);
+app.use('/api/products',apiProductsRouter);
+
 
 
 

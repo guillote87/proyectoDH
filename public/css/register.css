@@ -114,6 +114,9 @@ main section {
 	display: block;
 }
 
+.avatar img {
+    width: 40%;
+}
 .mensaje-error {
 	height: 45px;
 	line-height: 45px;
