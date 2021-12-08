@@ -21,9 +21,10 @@
                     <% if(locals.errors && errors.password) { %>
                         <p><%= errors.password.msg %></p>
                     <% } %>
-                    <form action="/users/login" method="POST">
-                        <input type="email" name="email" placeholder="Ingrese su email">
-                        <input type="password" name="password" placeholder="Ingrese su contraseña">
+                    <form action="/users/login" method="POST" class="login-form" id="login-form">
+                        
+                        <input type="email" name="email" class="email" required placeholder="Ingrese su email">
+                        <input type="password" name="password" required placeholder="Ingrese su contraseña">
                         
                         <button class="button-login" type="submit">Ingresar</button>
                       <label for="">Recordame</label>
@@ -34,6 +35,8 @@
             </section>
         </main>
         <%- include('../partials/footer.ejs') %>
+        <script src="/script/valLogin.js"></script>
+       
 </body>
 
 </html>

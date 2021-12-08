@@ -31,7 +31,7 @@
           <!--Div Name-->
           <div class="formulario__grupo" id="name">
             <div class="control-form">
-              <input type="text" name="name" class="control" placeholder="Ingresá tu nombre"
+              <input type="text" name="name" class="control" required placeholder="Ingresá tu nombre"
                 value="<%= locals.old? old.name : null  %>" />
               <i class="icono-estado fas fa-times-circle"></i>
             </div>
@@ -47,9 +47,9 @@
 
           <!--Div Lastname-->
 
-          <div class="formulario__grupo" id="lastname">
+          <div class="formulario__grupo" id="lastName">
             <div class="control-form">
-              <input type="text" name="lastname" class="control" placeholder="Ingresá tu apellido"
+              <input type="text" name="lastName" class="control" required placeholder="Ingresá tu apellido"
                 value="<%= locals.old? old.lastName : null  %>" />
               <i class="icono-estado fas fa-times-circle"></i>
             </div>
@@ -83,7 +83,7 @@
             <!--Div Password-->
           <div class="formulario__grupo" id="password">
           <div class="control-form" >
-            <input type="password" name="password" id="pass" class="control " placeholder="Elegí una contraseña" />
+            <input type="password" name="password" id="pass" class="control " required placeholder="Elegí una contraseña" />
             <i class="icono-estado fas fa-times-circle"></i>
           </div>
           <p class="input-error">"La contraseña debera incluir, al menos una letra mayuscula, una minuscula, un numero y un caracter especial"</p>
@@ -98,7 +98,7 @@
             <!--Div Confirmation Password-->
           <div class="formulario__grupo" id="confirmation">
           <div class="control-form" >
-            <input type="password" name="confirmation" id= "pass2"class="control " placeholder="Repetí la contraseña" />
+            <input type="password" name="confirmation" id= "pass2"class="control " required placeholder="Repetí la contraseña" />
             <i class="icono-estado fas fa-times-circle"></i>
           </div>
           <p class="input-error">Ambas contraseñas deben ser iguales.</p>
@@ -110,10 +110,11 @@
             <%=errors.confirmation.msg %>
           </p>
           <% } %>
+          <div class="avatar" id="avatar"></div>
           <div class="control-form">
             <label for="image">
               Elegi una foto de perfil
-              <input type="file" accept=".JPG, .PNG" name="image" class="control" />
+              <input type="file" id="image" accept=".JPG, .PNG" name="image" class="control" />
             </label>
           </div>
           <!--Muestra errores que vienen de la validacion del back-->
