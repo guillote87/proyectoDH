@@ -8,9 +8,7 @@ window.addEventListener("load", function () {
   
     const inputs = document.querySelectorAll("#login-form input")
 
-    email.addEventListener("blur",()=>{
-        alert(email.value)
-    })
+    
 
 
 }

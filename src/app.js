@@ -6,6 +6,7 @@ const path = require("path");
 const session = require("express-session")
 const cookies = require("cookie-parser")
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
+const cors = require("cors")
 
 const methodOverride = require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 // ************ express() - (don't touch) ************
@@ -20,6 +21,7 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.use(session({ secret: "Llave secreta", resave: false, saveUninitialized: false }))
 app.use(cookies())
 app.use(userLoggedMiddleware)
+
     // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
@@ -34,10 +36,12 @@ const colorsRoutes = require("./routes/colorsRoutes");
 
 //Aquí llamo a la ruta de las api de usuarios
 const apiUsersRouter = require('./routes/api/usersAPIRoute')
-//Aquí llamo a la ruta de las api de actors
+//Aquí llamo a la ruta de las api de products
 const apiProductsRouter = require('./routes/api/productsAPIRoute')
+//Aquí llamo a la ruta de las api de categorias de productos
+const apiCategoriesRouter = require('./routes/api/categoriesAPIRoute');
 
-
+app.use(cors())
 app.use("/", indexRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
@@ -46,6 +50,7 @@ app.use("/colors",colorsRoutes)
 //(APIs)
 app.use('/api/users',apiUsersRouter);
 app.use('/api/products',apiProductsRouter);
+app.use("/api/categories",apiCategoriesRouter)
 
 
 
