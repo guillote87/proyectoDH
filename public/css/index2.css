@@ -1,36 +1,35 @@
 @import url(header.css);
 @import url(footer.css);
-
 :root {
     --blanco: #ffffff;
     --grisClaro: #dcdcdc;
     --gris: #9f9f9f;
-    --grisOscuro: #5B5B5B;
+    --grisOscuro: #5b5b5b;
     --negro: #060606;
     --violeta: #a11aa0;
 }
+
 * {
     margin: 0px;
+    box-sizing: border-box;
 }
 
-
+body {
+    font-family: "Rajdhani", sans-serif;
+    background-color: var(--gris);
+}
 
 .contenedor {
     width: 98%;
     margin: auto;
 }
 
-body {
-    font-family: 'Rajdhani', sans-serif;
-    background-color:var(--gris);
-}
-
 .products {
     background-color: var(--gris);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
+    display: grid;
+    grid-auto-rows: 29em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-flow: dense;
 }
 
 .products img {
@@ -45,34 +44,13 @@ body {
     border-radius: 10px 10px 10px 10px;
     background: rgba(51, 51, 51, 0.9);
     box-shadow: 5px 5px 5px 0px rgba(107, 32, 135, 0.75);
-    position:relative;
 }
-article::before {
-    position:absolute;
-    top:11px;
-    left:-40px;
-    display: block;
-    box-sizing:border-box;
-    content:"¡Nuevo!";
-    text-transform:uppercase;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 13px;
-    text-align:center;
-    font-weight: 700;
-    color: #fff;
-    background: transparent; 
-    height:0;
-    width:150px;                      
-    border:25px solid transparent;
-    border-bottom:25px solid purple;
-    line-height:23px;
-    transform: rotate(-45deg);
-    box-shadow: 0px 3px 5px -3px #000;
-    }
+
 article img {
     width: 100%;
     height: 100%;
 }
+
 article p {
     font-weight: bolder;
     color: white;
@@ -96,14 +74,13 @@ article h4 {
 .small img {
     width: 500px;
     height: 300px;
-    filter: grayscale(100%)
+    filter: grayscale(100%);
 }
 
 .small {
     position: relative;
     display: inline-block;
     text-align: center;
-
 }
 
 .centrado {
@@ -137,23 +114,16 @@ article h4 {
     font-size: 35px;
     color: rgba(107, 32, 135, 0.75);
 }
-.main-article{
-    border-top: var(--violeta) 2px solid;
-    align-items: center;
-}
 
-
-
-@media (min-width:780px) {
+@media (min-width: 780px) {
     .small img {
         padding: 10px;
         height: 400px;
         width: 600px;
     }
-     
 }
-@media (min-width:1000px)
- {
+
+@media (min-width: 1000px) {
     .fila {
         display: flex;
         flex-wrap: wrap;

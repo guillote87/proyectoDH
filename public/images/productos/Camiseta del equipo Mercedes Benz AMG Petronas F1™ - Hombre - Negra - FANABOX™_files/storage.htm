@@ -1,0 +1,35 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+(function(e){var t={};t.init=function(e){var n=!0;try{window.localStorage||(n=!1)}catch(r){n=!1}if(!n)try{return window.parent.postMessage("cross-storage:unavailable","*")}catch(r){return}t._permissions=e||[],t._installListener(),window.parent.postMessage("cross-storage:ready","*")},t._installListener=function(){var e=t._listener;window.addEventListener?window.addEventListener("message",e,!1):window.attachEvent("onmessage",e)},t._listener=function(e){var n,r,i,s,o,u,a;if(e.data==="cross-storage:poll")return window.parent.postMessage("cross-storage:ready",e.origin);if(e.data==="cross-storage:ready")return;try{i=JSON.parse(e.data)}catch(f){return}s=i.method.split("cross-storage:")[1];if(!s)return;if(!t._permitted(e.origin,s))o="Invalid permissions for "+s;else try{u=t["_"+s](i.params)}catch(l){o=l.message}a=JSON.stringify({id:i.id,error:o,result:u}),window.parent.postMessage(a,e.origin)},t._permitted=function(e,n){var r,i,s,o;r=["get","set","del","clear","getKeys"];if(!t._inArray(n,r))return!1;for(i=0;i<t._permissions.length;i++){s=t._permissions[i];if(!(s.origin instanceof RegExp&&s.allow instanceof Array))continue;o=s.origin.test(e);if(o&&t._inArray(n,s.allow))return!0}return!1},t._set=function(e){var n,r;n=e.ttl;if(n&&parseInt(n,10)!==n)throw new Error("ttl must be a number");r=e.value,n&&(r.expire=t._now()+n),window.localStorage.setItem(e.key,JSON.stringify(r))},t._get=function(e){var n,r,i,s,o;n=window.localStorage,r=[];for(i=0;i<e.keys.length;i++)o=e.keys[i],s=JSON.parse(n.getItem(o)),s===null?r.push(null):s.expire&&s.expire<t._now()?(n.removeItem(o),r.push(null)):r.push(s);return r.length>1?r:r[0]},t._del=function(e){for(var t=0;t<e.keys.length;t++)window.localStorage.removeItem(e.keys[t])},t._clear=function(){window.localStorage.clear()},t._getKeys=function(e){var t,n,r;r=[],n=window.localStorage.length;for(t=0;t<n;t++)r.push(window.localStorage.key(t));return r},t._inArray=function(e,t){for(var n=0;n<t.length;n++)if(e===t[n])return!0;return!1},t._now=function(){return typeof Date.now=="function"?Date.now():(new Date).getTime()},typeof module!="undefined"&&module.exports?module.exports=t:typeof exports!="undefined"?exports.CrossStorageHub=t:typeof define=="function"&&define.amd?define("CrossStorageHub",[],function(){return t}):e.CrossStorageHub=t})(this);
+</script>
+</head>
+<body>
+<script type="text/javascript">
+  CrossStorageHub.init([
+    { origin: /.*/, allow: ['get', 'set', 'del'] }
+  ]);
+
+  // 5% chance of iterating through localStorage and removing any expired keys.
+  if (Math.random() < 0.05) {
+    var i, now, key, keys = [], length = window.localStorage.length;
+    now = (typeof Date.now === 'function' ? Date.now() : Date().getTime())
+    for (i = 0; i < length; i++) {
+      keys.push(window.localStorage.key(i));
+    }
+    for (i = 0; i < length; i++) {
+      key = keys[i];
+      try {
+        item = JSON.parse(window.localStorage.getItem(key));
+        if (item && item.expire && item.expire < now) {
+          window.localStorage.removeItem(key);
+        }
+      } catch(e) {
+        // This key seems to be invalid. Will leave it for now.
+      }
+    }
+  }
+</script>
+
+
+</body></html>

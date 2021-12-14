@@ -154,7 +154,7 @@ const usersController = {
 
             })
             .then(cart => {
-                // res.json(cart)
+                res.json(cart)
                 res.render("users/productCart", {
                     cart
                 });
