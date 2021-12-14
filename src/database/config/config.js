@@ -1,10 +1,16 @@
  module.exports = {
-     "development": {
+   /*  "development": {
          "username": "ds13ojeda",
          "password": "gc@j8HmTbKR78PM",
          "database": "ds13ojeda_nicotine",
          "host": "mysql-ds13ojeda.alwaysdata.net",
-         "dialect": "mysql"
+         "dialect": "mysql" */
+           "development": {
+         "username": "root",
+         "password": "",
+         "database": "nicotine",
+         "host": "127.0.0.1",
+         "dialect": "mysql" 
      },
      "test": {
          "username": "root",
